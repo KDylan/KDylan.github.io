@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.png">
+
+<title>SwiftUI 学习笔记 | Memoirs</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>SwiftUI 学习笔记 | Memoirs</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="SwiftUI 学习笔记" />
+<meta name="author" content="Dylan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="学习SwiftUI 参考Github 示例" />
+<meta property="og:description" content="学习SwiftUI 参考Github 示例" />
+<meta property="og:site_name" content="Memoirs" />
+<meta property="og:image" content="/assets/images/install_githubpage/home.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-05-20T00:00:00+08:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/images/install_githubpage/home.jpg" />
+<meta property="twitter:title" content="SwiftUI 学习笔记" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"Dylan"},"url":"/SwiftUI-Study/","image":"/assets/images/install_githubpage/home.jpg","headline":"SwiftUI 学习笔记","dateModified":"2024-05-20T00:00:00+08:00","datePublished":"2024-05-20T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/SwiftUI-Study/"},"description":"学习SwiftUI 参考Github 示例","author":{"@type":"Person","name":"Dylan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<link href="/assets/css/prism.css" rel="stylesheet">
+
+<link href="/assets/css/theme.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+
+</head>
+
+
+
+
+<body>
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Sen:400,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+<!-- Begin Sidebar Navigation
+================================================== -->
+
+<div class="sidebar">    
+</div>   
+<div class="nav-icon">
+    <div class="hamburger-bar"></div>
+</div>
+<div id="blackover-nav" class="blackover"></div>
+<nav id="menu">
+    <ul>
+        <h3>Navigation</h3>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/authors">Contributors <span class="badge badge-primary">new</span></a></li>
+        <li><a target="_blank" href="https://bootstrapstarter.com/jekyll-theme-memoirs/">Get Memoirs</a></li>      
+        <li><a href="/contact">Contact</a></li>       
+    </ul>   
+</nav>
+
+<script src="/assets/js/lunr.js"></script>
+
+<style>
+    
+</style>
+
+<div class="wrap-search">
+    <div class="d-flex align-items-center ml-auto">
+        <i class="fas fa-search show-search"></i>
+        <form class="bd-search ml-3" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+            <input type="text" class="form-control bigradius text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+        </form>
+    </div>
+</div>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+
+<!-- End Sidebar Navigation
+================================================== -->
+
+<div class="site-content ">
+
+<div class="container">
+
+    <!-- Site Logo/Name
+    ================================================== -->
+   
+    <a class="navbar-brand" href="/">
+        <img src="/assets/images/logo.png" alt="Memoirs">
+    </a>  
+   
+
+    <!-- Site Tag
+    ================================================== -->
+    
+
+    <!-- Content
+    ================================================== -->
+    <div class="main-content">
+        <div class="entry-header">
+    <!-- Post Title -->
+    <h1 class="posttitle">SwiftUI 学习笔记</h1>
+    <!-- Author & Date  Box -->
+    
+    
+    <div class="d-flex align-items-center mt-4">
+        <div>
+            
+            <img class="author-thumb" src="/assets/images/avatar_2024.jpg" alt="Dylan">
+            
+        </div>            
+        <div>
+        Written by Dylan on 
+        <span class="post-date"><time class="post-date" datetime="2024-05-20">20 May 2024</time></span>           
+        
+        </div>            
+    </div>
+    
+</div>
+
+<!-- Adsense under title if enabled from _config.yml (change your pub id and slot) -->
+
+
+<!-- Featured Image -->
+
+<div class="entry-featured-image">
+    
+    <img class="featured-image " src="/assets/images/install_githubpage/home.jpg" alt="SwiftUI 学习笔记">
+    
+</div>
+
+
+<!-- Content -->
+<!-- Post, Page Content
+================================================== -->
+<div class="article-post">
+    <!-- Toc if any -->
+    
+    
+        <p><em>Prism highlighter is a very powerful thing. In this article I'm going to show you what you can actually do with it, some tricks and tips while editing your post. Tocs is also enabled as you can see in summary.</em></p>
+    
+    <div class="toc mt-4 mb-4 lead">
+        <h3 class="font-weight-bold">Summary</h3>
+        <ul>
+  <li><a href="#基础控件">基础控件</a>
+    <ul>
+      <li><a href="#text文本">Text文本</a>
+        <ul>
+          <li><a href="#text">Text</a></li>
+          <li><a href="#textfield">TextField</a></li>
+          <li><a href="#securefield">SecureField</a></li>
+        </ul>
+      </li>
+      <li><a href="#image-图片">Image 图片</a>
+        <ul>
+          <li><a href="#image">Image</a></li>
+          <li><a href="#webimage">WebImage</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+    </div>
+    
+    <!-- End Toc -->
+    <p>学习SwiftUI 参考Github <a href="https://github.com/Jinxiansen/SwiftUI">示例</a></p>
+
+<h2 id="基础控件">基础控件</h2>
+
+<h3 id="text文本">Text文本</h3>
+<h4 id="text">Text</h4>
+<p>Text 用来展示一行或多行的文本内容，效果等同于 UILabel，但更加优秀。 如果要创建 Text， 只需通过 Text(“SwiftUI”) 即可创建； 采用链式语法，也可以为文本添加多项属性，如字体、颜色、阴影、上左下右的间距等。</p>
+<pre><code class="language-Text">struct TextPage: View {
+    var body: some View {
+        Text("SwiftUI")
+            .foregroundColor(.red)
+            .font(.title)
+            .fontWeight(.bold)
+            .italic()
+            .underline()
+            .shadow(color: .orange, radius: 1, x: 0, y: 2)
+    }
+}
+</code></pre>
+<h4 id="textfield">TextField</h4>
+<p>TextField 用来添加普通的输入框，一般常用作文本输入。</p>
+<pre><code class="language-TextField">struct TextFieldPage: View {
+    @State private var username: String = ""
+    @State private var password: String = ""
+    var body: some View {
+        VStack {
+            HStack {
+                Text("用户名:").foregroundStyle(.secondary)
+                TextField("请输入用户名", text: $username, onEditingChanged: { _ in
+                    print("onEditingChanged \(self.$username)") },
+                          onCommit: { print("onCommit\(self.$username)")
+                }).padding()
+            }.padding(10)// 内边距
+                .frame(height: 50, alignment: .center)
+            
+            HStack {
+                Text("密    码: ").foregroundStyle(.secondary)
+                SecureField("请输入密码", text: $password).padding()
+            }.padding(10)
+        }
+        .offset(x:100, y: -100)
+        .navigationTitle("TextField")
+    }
+}
+</code></pre>
+<h4 id="securefield">SecureField</h4>
+<p>SecureField 一般作为密码输入，使用上和TextField并无差异</p>
+<h3 id="image-图片">Image 图片</h3>
+
+<h4 id="image">Image</h4>
+<p>Image 控件用于展示图片。</p>
+<pre><code class="language-Image">struct ImageIconPage: View {
+    let range = 0...6
+    var body: some View {
+        VStack{
+            ForEach(range, id: \.self) { index in
+                Image(systemName: "star.fill")
+                    .resizable()
+                    .frame(width: 30 * CGFloat(index), height: 30 * CGFloat(index), alignment: .center)
+                    .foregroundColor(.yellow)
+            }
+        }
+    }
+}
+</code></pre>
+<h4 id="webimage">WebImage</h4>
+<p>webImage 用于下载网络图片，使用的 URLSession下载成功后替换原有 Image；你也可以在 downloadWebImage 方法中使用 <a href="https://github.com/onevcat/Kingfisher">Kingfisher</a> 。</p>
+<pre><code class="language-WebImage">struct WebImagePage: View {
+    @State private var uiImage: UIImage? = nil
+    let placeholderImage = UIImage(systemName: "star.fill")!
+    var body: some View {
+        Image(uiImage: self.uiImage ?? placeholderImage)
+            .resizable()
+            .onAppear(perform: loadImage)
+            .frame(width: 80,
+                   height: 80,
+                   alignment: .center)
+            .onTapGesture {
+                print("Tap ")
+            }.navigationBarTitle(Text("WebImage"))
+    }
+    
+    func loadImage() {
+        guard let url = URL(string: "https://b0.bdstatic.com/4492935220f7efdae0356e133e9aeee8.jpg@h_1280") else {
+            print("Invalid URL.")
+            return
+        }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let data = data, let image = UIImage(data: data) {
+                self.uiImage = image
+            }else {
+                print("error: \(String(describing: error))")
+            }
+        }.resume()
+    }
+}
+</code></pre>
+
+</div>
+
+<!-- Rating -->
+
+
+<!-- Author Box if enabled from _config.yml -->
+<!-- Author Box -->
+
+
+<div class="authorbox mb-5 mt-5 pt-4 pb-4">   
+    <div class="row">
+        <div class="wrapavname col-md-3 text-center">
+            
+            <img  class="author-thumb" src="/assets/images/avatar_2024.jpg" alt="Dylan">
+            
+            <p class="mt-4 mb-0 small text-center">
+                <a target="_blank" class="d-inline-block mx-1 text-dark" href=""><i class="fa fa-link"></i></a> 
+                <a target="_blank" class="d-inline-block mx-1 text-dark" href=""><i class="fab fa-twitter"></i></a>
+                <a class="d-inline-block mx-1 text-dark" href="mailto:Leonsongfeng@gmail.com"><i class="fa fa-envelope"></i></a>
+            </p>
+        </div>
+        <div class="col-md-9">
+            <h4>Dylan</h4>
+            <p class="mt-3 mb-0">新手上路，一些踩坑和学习记录</p>
+        </div>
+    </div> 
+</div> 
+
+
+
+<!-- Comments if not disabled with comments: false -->
+<!-- Comments
+================================================== -->
+ 
+<div class="comments mt-5">
+    <button class="btn btn-outline-dark py-2 px-5 d-block w-100 show-comments"><i class="fa fa-comments text-muted"></i> &nbsp; Load Comments</button>         
+    <div id="comments">  
+        <h4 class="mb-4">Comments</h4>                 
+            <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+     
+    <div class="clearfix"></div>              
+    </div>    
+</div>       
+
+
+<!-- Share -->
+<div class="share">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=SwiftUI 学习笔记&url=/SwiftUI-Study/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=/SwiftUI-Study/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=/SwiftUI-Study/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+</div>
+
+
+<!-- Related Post -->
+<!-- Related Posts
+================================================== -->
+<div class=" related-posts ">  
+
+    
+    <h2 class="text-center mb-4">Explore more like this</h2>
+    
+    
+    <div class="d-flex justify-content-center align-items-center">
+    
+    <!-- Categories -->
+    
+    
+    <a class="smoothscroll badge badge-primary text-capitalize" href="/categories#Technology">Technology</a>                
+    
+
+    <!-- Tags -->  
+    
+                    
+    <a class="smoothscroll badge badge-primary text-capitalize" href="/tags#Study">Study</a>               
+    
+
+    </div>
+
+    
+    
+    
+    <div class="blog-grid-container">
+        
+        
+            
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+            
+        
+            
+            <!-- begin post -->
+
+
+<div class="blog-grid-item">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/github-page-config/">
+                
+
+                    
+                        <img class="img-thumb" src="/assets/images/install_githubpage/home.jpg" alt="Github Page 配置踩坑记录"> 
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/github-page-config/">Github Page 配置踩坑记录</a>
+                
+            </h2>
+            <h4 class="card-text">使用jekyll本地调试可以访问静态资源，但是上传至GitHub无法访问
+</h4>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" src="/assets/images/avatar_2024.jpg" alt="Dylan">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name font-weight-bold">Dylan</span> 
+                
+                <span class="post-date">12 May 2024</span>
+                </span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+            
+            
+            
+        
+        
+        
+            
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+            
+        
+            
+        
+        
+        </div>        
+</div>
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </div>
+
+    
+    <!-- Newsletter
+    ================================================== -->
+    <div class="newsletter text-center">
+        <span class="h4"><img src="/assets/images/logo.png" class="newsletter-logo" alt="Memoirs"> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group d-inline-flex">
+            <input type="email" placeholder="Your e-mail" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+    </div>
+    
+    
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 text-center text-lg-left">
+                Copyright © 2024 Memoirs 
+            </div>
+            <div class="col-md-6 col-sm-12 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/memoirs-free-jekyll-theme/">Memoirs Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts (if you need bootstrap.js, please add it yourself. I didn't use it for performance reasons, it was not needed in this theme)
+================================================== -->
+
+<script src="/assets/js/prism.js"></script>
+
+<script src="/assets/js/theme.js"></script>
+
+
+
+
+<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
+
+
+</body>
+</html>

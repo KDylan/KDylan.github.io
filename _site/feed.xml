@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Memoirs</title>
+    <description>I will take you on the fabulous world of exploration. Travel, culture, lifestyle. Eat, Pray, Love!</description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 29 May 2024 19:58:29 +0800</pubDate>
+    <lastBuildDate>Wed, 29 May 2024 19:58:29 +0800</lastBuildDate>
+    <generator>Jekyll v4.2.0</generator>
+    
+      <item>
+        <title>SwiftUI 学习笔记</title>
+        <description>&lt;p&gt;学习SwiftUI 参考Github &lt;a href=&quot;https://github.com/Jinxiansen/SwiftUI&quot;&gt;示例&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;基础控件&quot;&gt;基础控件&lt;/h2&gt;
+
+&lt;h3 id=&quot;text文本&quot;&gt;Text文本&lt;/h3&gt;
+&lt;h4 id=&quot;text&quot;&gt;Text&lt;/h4&gt;
+&lt;p&gt;Text 用来展示一行或多行的文本内容，效果等同于 UILabel，但更加优秀。 如果要创建 Text， 只需通过 Text(“SwiftUI”) 即可创建； 采用链式语法，也可以为文本添加多项属性，如字体、颜色、阴影、上左下右的间距等。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Text&quot;&gt;struct TextPage: View {
+    var body: some View {
+        Text(&quot;SwiftUI&quot;)
+            .foregroundColor(.red)
+            .font(.title)
+            .fontWeight(.bold)
+            .italic()
+            .underline()
+            .shadow(color: .orange, radius: 1, x: 0, y: 2)
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;textfield&quot;&gt;TextField&lt;/h4&gt;
+&lt;p&gt;TextField 用来添加普通的输入框，一般常用作文本输入。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-TextField&quot;&gt;struct TextFieldPage: View {
+    @State private var username: String = &quot;&quot;
+    @State private var password: String = &quot;&quot;
+    var body: some View {
+        VStack {
+            HStack {
+                Text(&quot;用户名:&quot;).foregroundStyle(.secondary)
+                TextField(&quot;请输入用户名&quot;, text: $username, onEditingChanged: { _ in
+                    print(&quot;onEditingChanged \(self.$username)&quot;) },
+                          onCommit: { print(&quot;onCommit\(self.$username)&quot;)
+                }).padding()
+            }.padding(10)// 内边距
+                .frame(height: 50, alignment: .center)
+            
+            HStack {
+                Text(&quot;密    码: &quot;).foregroundStyle(.secondary)
+                SecureField(&quot;请输入密码&quot;, text: $password).padding()
+            }.padding(10)
+        }
+        .offset(x:100, y: -100)
+        .navigationTitle(&quot;TextField&quot;)
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;securefield&quot;&gt;SecureField&lt;/h4&gt;
+&lt;p&gt;SecureField 一般作为密码输入，使用上和TextField并无差异&lt;/p&gt;
+&lt;h3 id=&quot;image-图片&quot;&gt;Image 图片&lt;/h3&gt;
+
+&lt;h4 id=&quot;image&quot;&gt;Image&lt;/h4&gt;
+&lt;p&gt;Image 控件用于展示图片。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Image&quot;&gt;struct ImageIconPage: View {
+    let range = 0...6
+    var body: some View {
+        VStack{
+            ForEach(range, id: \.self) { index in
+                Image(systemName: &quot;star.fill&quot;)
+                    .resizable()
+                    .frame(width: 30 * CGFloat(index), height: 30 * CGFloat(index), alignment: .center)
+                    .foregroundColor(.yellow)
+            }
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;webimage&quot;&gt;WebImage&lt;/h4&gt;
+&lt;p&gt;webImage 用于下载网络图片，使用的 URLSession下载成功后替换原有 Image；你也可以在 downloadWebImage 方法中使用 &lt;a href=&quot;https://github.com/onevcat/Kingfisher&quot;&gt;Kingfisher&lt;/a&gt; 。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-WebImage&quot;&gt;struct WebImagePage: View {
+    @State private var uiImage: UIImage? = nil
+    let placeholderImage = UIImage(systemName: &quot;star.fill&quot;)!
+    var body: some View {
+        Image(uiImage: self.uiImage ?? placeholderImage)
+            .resizable()
+            .onAppear(perform: loadImage)
+            .frame(width: 80,
+                   height: 80,
+                   alignment: .center)
+            .onTapGesture {
+                print(&quot;Tap &quot;)
+            }.navigationBarTitle(Text(&quot;WebImage&quot;))
+    }
+    
+    func loadImage() {
+        guard let url = URL(string: &quot;https://b0.bdstatic.com/4492935220f7efdae0356e133e9aeee8.jpg@h_1280&quot;) else {
+            print(&quot;Invalid URL.&quot;)
+            return
+        }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let data = data, let image = UIImage(data: data) {
+                self.uiImage = image
+            }else {
+                print(&quot;error: \(String(describing: error))&quot;)
+            }
+        }.resume()
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Mon, 20 May 2024 00:00:00 +0800</pubDate>
+        <link>/SwiftUI-Study/</link>
+        <guid isPermaLink="true">/SwiftUI-Study/</guid>
+        
+        <category>Study</category>
+        
+        
+        <category>Technology</category>
+        
+      </item>
+    
+      <item>
+        <title>Github Page 配置踩坑记录</title>
+        <description>&lt;h1 id=&quot;使用jekyll本地调试可以访问静态资源但是上传至github无法访问&quot;&gt;使用jekyll本地调试可以访问静态资源，但是上传至GitHub无法访问&lt;/h1&gt;
+
+&lt;p&gt;使用jekyll本地调试可以访问静态资源，但是上传至GitHub无法访问的问题&lt;/p&gt;
+
+&lt;p&gt;在参考网上教程配置完github page之后，将fork 的主题下载之后，启动本地服务器运行没问题.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/images/install_githubpage/local_test_image.png&quot; alt=&quot;本地服务器&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;但是在远端打开后CSS不渲染&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/images/install_githubpage/github_page_image.png&quot; alt=&quot;github page 展示&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;可能的原因&lt;/p&gt;
+
+&lt;h2 id=&quot;_site文件被忽略检查gitignore文件&quot;&gt;_site文件被忽略,检查.gitignore文件&lt;/h2&gt;
+
+&lt;p&gt;.gitignore文件有可能将_site文件添加为忽略文件，以至于&lt;code&gt;git add .&lt;/code&gt;等后续操作将该文件忽略，从而无法上传至远程仓库的问题。&lt;/p&gt;
+
+&lt;p&gt;如下，是我下载jekyll模板后，存在的内容，可以看到_site文件以及&lt;code&gt;.sass-cache&lt;/code&gt;文件都被忽略了&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;解决：&lt;/strong&gt; 检查远程仓库是否有_site文件，将.gitignore文件中的内容去掉，重新提交至远程仓库即可。
+&lt;img src=&quot;../assets/images/install_githubpage/site_change.png&quot; alt=&quot;_site commit change&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;baseurl字段设置的有问题&quot;&gt;baseurl字段设置的有问题&lt;/h2&gt;
+
+&lt;p&gt;如果baseurl字段设置了值，jekyll本地生成的所以HTML文件中，其对静态资源的访问路径都会加上改值以作地址映射&lt;/p&gt;
+
+&lt;p&gt;上传至远程仓库后，其由于github的根目录没有关于&lt;code&gt;/jekyll-theme-memoirs&lt;/code&gt;这个地址映射，所有使得有该映射地址的静态文件都无法访问&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;解决：&lt;/strong&gt; 我目前还没找到可以为GitHub添加映射的方法，因此只能先将baseurl的值置空&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/images/install_githubpage/baseurl_change.png&quot; alt=&quot;baseurl commit change&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 12 May 2024 00:00:00 +0800</pubDate>
+        <link>/github-page-config/</link>
+        <guid isPermaLink="true">/github-page-config/</guid>
+        
+        <category>Notes</category>
+        
+        
+        <category>Technology</category>
+        
+      </item>
+    
+      <item>
+        <title>Les Ambassadeurs, the first Restaurant we Visited in Paris</title>
+        <description>&lt;p&gt;Within the Hôtel de Crillon, which was built in 1758, Les Ambassadeurs operated as a restaurant since the mid-19th century. It reached its peak of fame as a restaurant and nightclub (a café-concert) in the last three decades of the 19th century.&lt;/p&gt;
+
+&lt;p&gt;Always a center of entertainment for the aristocracy, in the 1870s it also became a regular destination of some of the best known figures of art and the demi-monde. Edgar Degas and Henri de Toulouse-Lautrec portrayed visitors at the night club, and Aristide Bruant performed there.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It was decorated in an 18th-century rococo style, redesigned by Sybille de Margérie with furnishings by Sonia Rykiel.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Following a renovation of the hotel in 1981–85, the restaurant occupied a former private ballroom with windows looking out on the Place de la Concorde, a few hundred meters from the Palais Garnier.&lt;/p&gt;
+
+&lt;p&gt;Les Ambassadeurs had two Michelin stars. In the last decade of its operation, chef was Dominique Bouchet  followed by Jean-François Piège and finally when the hotel closed in 2013 for an extended renovation, Christopher Hache.&lt;/p&gt;
+
+&lt;p&gt;In 2017 Hache opened a smaller restaurant, L’Écrin, within the renovated hotel; the former space of Les Ambassadeurs became a bar.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 02 Feb 2024 00:00:00 +0800</pubDate>
+        <link>/les-ambassadeurs/</link>
+        <guid isPermaLink="true">/les-ambassadeurs/</guid>
+        
+        <category>France</category>
+        
+        
+        <category>Lifestyle</category>
+        
+      </item>
+    
+      <item>
+        <title>Much more than a desert: A trip into the Sahara</title>
+        <description>&lt;p&gt;The Sahara is a desert located on the African continent. It is the largest hot desert in the world, and the third largest desert overall after Antarctica and the Arctic. Its area of 9,200,000 square kilometres (3,600,000 sq mi) is comparable to the area of China or the United States.[3] The name ‘Sahara’ is derived from a dialectal Arabic word for “desert”, ṣaḥra (صحرا /ˈsˤaħra/).&lt;/p&gt;
+
+&lt;p&gt;The desert comprises much of North Africa, excluding the fertile region on the Mediterranean Sea coast, the Atlas Mountains of the Maghreb, and the Nile Valley in Egypt and Sudan. It stretches from the Red Sea in the east and the Mediterranean in the north to the Atlantic Ocean in the west, where the landscape gradually changes from desert to coastal plains.&lt;/p&gt;
+
+&lt;p&gt;To the south, it is bounded by the Sahel, a belt of &lt;strong&gt;semi-arid tropical savanna&lt;/strong&gt; around the Niger River valley and the Sudan Region of Sub-Saharan Africa. The Sahara can be divided into several regions including: the western Sahara, the central Ahaggar Mountains, the Tibesti Mountains, the Aïr Mountains, the Ténéré desert, and the Libyan Desert.&lt;/p&gt;
+
+&lt;p&gt;For several hundred thousand years, the Sahara has alternated between desert and savanna grassland in a 20,000 year cycle caused by the precession of the Earth’s axis as it rotates around the Sun, which changes the location of the North African Monsoon. The area is next expected to become green in about 15,000 years (17,000 AD).&lt;/p&gt;
+</description>
+        <pubDate>Sat, 01 Feb 2020 00:00:00 +0800</pubDate>
+        <link>/much-more-than-a-desert-trip-to-sahara/</link>
+        <guid isPermaLink="true">/much-more-than-a-desert-trip-to-sahara/</guid>
+        
+        
+        <category>Travel</category>
+        
+      </item>
+    
+      <item>
+        <title>One day we just started our adventure</title>
+        <description>&lt;p&gt;The die cut has also been employed in the non-juvenile sphere as well, a recent example being Jonathan Safran Foer’s ambitious Tree of Codes.&lt;/p&gt;
+
+&lt;p&gt;As for this particular rendition of Charles Perrault’s classic tale, the text and design is by Lydia Very (1823-1901), sister of Transcendentalist poet Jones Very. The gruesome ending of the original - which sees Little Red Riding Hood being gobbled up as well as her grandmother - is avoided here, the gore giving way to the less bloody aims of the morality tale, and the lesson that one should not disobey one’s mother.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It would seem the claim could also extend to die cut books in general, as we can’t find anything sooner, but do let us know in the comments if you have further light to shed on this! Such books are, of course, still popular in children’s publishing today, though the die cutting is not now limited to mere outlines, as evidenced in a beautiful 2014 version of the same Little Red Riding Hood story.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The first mass-produced book to deviate from a rectilinear format, at least in the United States, is thought to be this 1863 edition of Red Riding Hood, cut into the shape of the protagonist herself with the troublesome wolf curled at her feet.&lt;/p&gt;
+
+&lt;p&gt;Produced by the Boston-based publisher Louis Prang, this is the first in their “Doll Series”, a set of five “die-cut” books, known also as shape books — the other titles being Robinson Crusoe, Goody Two-Shoes (also written by Red Riding Hood author Lydia Very), Cinderella, and King Winter.&lt;/p&gt;
+
+&lt;p&gt;An 1868 Prang catalogue would later claim that such “books in the shape of a regular paper Doll… originated with us”.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 12 Jan 2020 00:00:00 +0800</pubDate>
+        <link>/one-day-just-started-adventure/</link>
+        <guid isPermaLink="true">/one-day-just-started-adventure/</guid>
+        
+        
+        <category>Travel</category>
+        
+      </item>
+    
+      <item>
+        <title>London is that kind of place you must visit in this lifetime</title>
+        <description>&lt;p&gt;The Queen’s Guard and Queen’s Life Guard (called King’s Guard and King’s Life Guard when the reigning monarch is male) are the names given to contingents of infantry and cavalry soldiers charged with guarding the official royal residences in the United Kingdom. The British Army has regiments of both Horse Guards and Foot Guards predating the English Restoration (1660), and since the reign of King Charles II these regiments have been responsible for guarding the Sovereign’s palaces. The Guards are fully operational soldiers.&lt;/p&gt;
+
+&lt;p&gt;The Queen’s Guard and Queen’s Life Guard are mounted at the royal residences that come under the operating area of the British Army’s London District, which is responsible for the administration of the Household Division. This covers Buckingham Palace, St James’s Palace and the Tower of London, as well as Windsor Castle. The Queen’s Guard is also mounted at the sovereign’s other official residence, the Palace of Holyroodhouse, but not as often as in London. In Edinburgh, the guard is the responsibility of the resident infantry battalion at Redford Barracks. It is not mounted at the Queen’s private residences at Sandringham or Balmoral.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The Queen’s Guard is the name given to the contingent of infantry responsible for guarding Buckingham Palace and St James’s Palace (including Clarence House) in London. The guard is made up of a company of soldiers from a single regiment, which is split in two, providing a detachment for Buckingham Palace and a detachment for St James’s Palace. Because the Sovereign’s official residence is still St James’s, the guard commander (called the captain of the guard) is based there, as are the regiment’s colours.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;When the Sovereign is in residence, the Queen’s Guard numbers three officers and forty other ranks, with four sentries each posted at Buckingham Palace (on the forecourt) and St James’s Palace (two in Friary Court, two at the entrance to Clarence House).&lt;/p&gt;
+
+&lt;p&gt;This reduces to three officers and 31 ORs, with two sentries each, when the Sovereign is not in residence. The Queen’s Guard is not purely ceremonial in nature. They provide sentries during the day and night, and during the later hours, they patrol the grounds of the Palace.&lt;/p&gt;
+
+&lt;p&gt;Until 1959, the sentries at Buckingham Palace were stationed outside the fence. This stopped following an incident involving a female tourist and a Coldstream Guardsman – due to the continued pestering by tourists and sightseers, the guardsman kicked the tourist on the ankle as he marched. The tourist made a complaint to the police and the sentry was confined to barracks for ten days. Not long after, the sentries were moved inside the fence.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 12 Jan 2020 00:00:00 +0800</pubDate>
+        <link>/london/</link>
+        <guid isPermaLink="true">/london/</guid>
+        
+        
+        <category>Travel</category>
+        
+      </item>
+    
+      <item>
+        <title>Memoirs supports external images as featured</title>
+        <description>&lt;p&gt;Adding images is a very annoying task, I know that, but “Memoirs” theme has external featured images integrated so your publishing task becomes easier now.&lt;/p&gt;
+
+&lt;p&gt;Education must also train one for quick, resolute and effective thinking. To think incisively and to think for one’s self is very difficult.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We are prone to let our mental life become invaded by legions of half truths, prejudices, and propaganda. At this point, I often wonder whether or not education is fulfilling its purpose. A great majority of the so-called educated people do not think logically and scientifically.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Even the press, the classroom, the platform, and the pulpit in many instances do not give us objective and unbiased truths. To save man from the morass of propaganda, in my opinion, is one of the chief aims of education. Education must enable one to sift and weigh evidence, to discern the true from the false, the real from the unreal, and the facts from the fiction.&lt;/p&gt;
+
+&lt;p&gt;The function of education, therefore, is to teach one to think intensively and to think critically. But education which stops with efficiency may prove the greatest menace to society. The most dangerous criminal may be the man gifted with reason, but with no morals.&lt;/p&gt;
+
+&lt;p&gt;The late Eugene Talmadge, in my opinion, possessed one of the better minds of Georgia, or even America. Moreover, he wore the Phi Beta Kappa key. By all measuring rods, Mr. Talmadge could think critically and intensively; yet he contends that I am an inferior being. Are those the types of men we call educated?&lt;/p&gt;
+
+&lt;p&gt;We must remember that intelligence is not enough. Intelligence plus character–that is the goal of true education. The complete education gives one not only power of concentration, but worthy objectives upon which to concentrate. The broad education will, therefore, transmit to one not only the accumulated knowledge of the race but also the accumulated experience of social living.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 12 Jan 2020 00:00:00 +0800</pubDate>
+        <link>/external-featured-image/</link>
+        <guid isPermaLink="true">/external-featured-image/</guid>
+        
+        <category>France</category>
+        
+        
+        <category>Lifestyle</category>
+        
+        <category>Travel</category>
+        
+      </item>
+    
+      <item>
+        <title>Spoliers Inside - a film review needs hidden spoilers like this post</title>
+        <description>&lt;p&gt;Director Roland Suso Richter’s enigmatic psychological thriller (direct to video/DVD) was based upon screenwriter Michael Cooney’s own play “Point of Death” - a title that gave away the film’s entire plot twist premise.&lt;/p&gt;
+
+&lt;p&gt;As in many similar films, such as Jacob’s Ladder (1990), Soul Survivors (2001), and The Butterfly Effect (2004), events and people were thoroughly distorted and confused because the protagonist was at the point of death. The tagline was misleading:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;“When You Don’t Have a Memory, How Can You Remember Who to Trust?”&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The mind-warping film opened with a hospital patient Simon Cable (Ryan Phillippe) awakening in a &lt;span class=&quot;spoiler&quot;&gt; hospital with little knowledge (amnesia perhaps?) of what had happened, and why he was there, etc. He was told by attending Dr. Jeremy Newman (Stephen Rea) that it was July 29, 2002 (Simon thought it was the year 2000 - he was confused - he heard a doctor say 20:00 hours!) and that he had died for two minutes from cardiac arrest following the near-fatal accident – but he had been revived (“You’re as good as new”).&lt;/span&gt; Dr. Newman: “Simon, this is the 29th of July. The year is 2002. And your wife, whose name is Anna, is waiting outside.”&lt;/p&gt;
+
+&lt;h4 id=&quot;what-critiques-say&quot;&gt;What critiques say?&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“There’s almost no single moment in Portrait of a Lady on Fire that couldn’t be captured, mounted, and hung on a wall as high art.” &lt;cite&gt;— Entertainment Weekly&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A major clue to everything that truly happened was the scene that played next under the credits - hospital staff failed to bring a patient back to life with a defibrillator after a car accident. Chest compressions failed and there was no pulse. A second major clue was provided by hospital orderly Travis (Stephen Graham): Everybody dies. No mystery there. But why and how everyone dies. Now, there’s a mystery worth solving. Probably the biggest mystery there is.&lt;/p&gt;
+
+&lt;h4 id=&quot;so-how-do-we-add-spoilers-in-this-theme&quot;&gt;So how do we add spoilers in this theme?&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;span class=&quot;spoiler&quot;&amp;gt;My hidden paragraph here.&amp;lt;/span&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Sat, 11 Jan 2020 00:00:00 +0800</pubDate>
+        <link>/post-with-spoiler/</link>
+        <guid isPermaLink="true">/post-with-spoiler/</guid>
+        
+        <category>Movies</category>
+        
+        
+        <category>Lifestyle</category>
+        
+      </item>
+    
+      <item>
+        <title>That day when we almost missed our flight</title>
+        <description>&lt;p&gt;The first mass-produced book to deviate from a rectilinear format, at least in the United States, is thought to be this 1863 edition of Red Riding Hood, cut into the shape of the protagonist herself with the troublesome wolf curled at her feet. Produced by the Boston-based publisher Louis Prang, this is the first in their “Doll Series”, a set of five “die-cut” books, known also as shape books — the other titles being Robinson Crusoe, Goody Two-Shoes (also written by Red Riding Hood author Lydia Very), Cinderella, and King Winter.&lt;/p&gt;
+
+&lt;p&gt;An 1868 Prang catalogue would later claim that such “books in the shape of a regular paper Doll… originated with us”.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It would seem the claim could also extend to die cut books in general, as we can’t find anything sooner, but do let us know in the comments if you have further light to shed on this! Such books are, of course, still popular in children’s publishing today, though the die cutting is not now limited to mere outlines, as evidenced in a beautiful 2014 version of the same Little Red Riding Hood story.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The die cut has also been employed in the non-juvenile sphere as well, a recent example being Jonathan Safran Foer’s ambitious Tree of Codes.&lt;/p&gt;
+
+&lt;p&gt;As for this particular rendition of Charles Perrault’s classic tale, the text and design is by Lydia Very (1823-1901), sister of Transcendentalist poet Jones Very. The gruesome ending of the original - which sees Little Red Riding Hood being gobbled up as well as her grandmother - is avoided here, the gore giving way to the less bloody aims of the morality tale, and the lesson that one should not disobey one’s mother.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 01 Jan 2020 00:00:00 +0800</pubDate>
+        <link>/that-day-we-almost-missed-flight/</link>
+        <guid isPermaLink="true">/that-day-we-almost-missed-flight/</guid>
+        
+        
+        <category>Travel</category>
+        
+        <category>Lifestyle</category>
+        
+      </item>
+    
+      <item>
+        <title>Reviewing the best Oscar movies of all time</title>
+        <description>&lt;p&gt;Review products, books, movies, restaurant and anything you like on your Jekyll blog with &lt;strong&gt;Memoirs&lt;/strong&gt;! JSON-LD ready for review property.&lt;/p&gt;
+
+&lt;h4 id=&quot;how-to-use&quot;&gt;How to use?&lt;/h4&gt;
+
+&lt;p&gt;It’s actually really simple! Add the rating in your YAML front matter. It also supports halfs:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-md&quot;&gt;---
+layout: post
+title:  &quot;Inception Movie&quot;
+author: john
+categories: [ Lifestyle ]
+tags: [red, yellow]
+image: assets/images/11.jpg
+description: &quot;My review of Inception movie. Actors, directing and more.&quot;
+rating: 4.5
+---
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Wed, 01 Jan 2020 00:00:00 +0800</pubDate>
+        <link>/review-oscar/</link>
+        <guid isPermaLink="true">/review-oscar/</guid>
+        
+        <category>Movies</category>
+        
+        
+        <category>Lifestyle</category>
+        
+      </item>
+    
+  </channel>
+</rss>

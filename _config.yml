@@ -14,23 +14,14 @@ email: wowthemesnet@gmail.com
 
 # Authors
 authors:
-  sal:
-    name: Sal
-    display_name: Sal
-    avatar: 'assets/images/avatar-sal.png'
-    email: wowthemesnet@gmail.com
-    web: https://www.wowthemes.net/donate/
-    twitter: https://twitter.com/wowthemesnet
-    description: "Author of Memoirs, a Bootstrap Medium styled template available for Jekyll. You are currently previewing Jekyll template demo."
-  john:
-    name: John
-    display_name: John    
-    avatar: 'assets/images/avatar.png'
-    email: wowthemesnet@gmail.com
-    web: https://www.wowthemes.net
-    twitter: https://twitter.com/wowthemesnet
-    description: "Write a short description of the author here. You are currently previewing Memoirs demo, a Jekyll template compatible with Github pages."
-
+  Dylan:
+    name: Dylan
+    display_name: Dylan
+    avatar: 'assets/images/avatar_2024.jpg'
+    email: Leonsongfeng@gmail.com
+    web: ''
+    twitter: ''
+    description: "新手上路，一些踩坑和学习记录"
 # Plugins
 plugins:
   - jekyll-paginate
