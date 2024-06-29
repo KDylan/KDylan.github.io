@@ -1,7 +1,7 @@
 # Site
 name: "Memoirs"
 title: "Memoirs"
-description: "I will take you on the fabulous world of exploration. Travel, culture, lifestyle. Eat, Pray, Love!"
+description: "I will present some learning records, notes, and ideas here."
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
 baseurl: ''
@@ -10,7 +10,7 @@ disqus: 'demowebsite'
 mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
 include: ["_pages"]
 permalink: /:title/
-email: wowthemesnet@gmail.com
+email: leonsongfeng@gmail.com
 
 # Authors
 authors:
@@ -21,7 +21,7 @@ authors:
     email: Leonsongfeng@gmail.com
     web: ''
     twitter: ''
-    description: "新手上路，一些踩坑和学习记录"
+    description: "一些踩坑和学习记录"
 # Plugins
 plugins:
   - jekyll-paginate

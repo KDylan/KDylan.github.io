@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.png">
+
+<title>iOS 18 and Xcode 16 New Feature | Memoirs</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>iOS 18 and Xcode 16 New Feature | Memoirs</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="iOS 18 and Xcode 16 New Feature" />
+<meta name="author" content="Dylan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="New feature" />
+<meta property="og:description" content="New feature" />
+<meta property="og:site_name" content="Memoirs" />
+<meta property="og:image" content="/assets/images/iOS_18/preview.jpeg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-06-20T00:00:00+08:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/images/iOS_18/preview.jpeg" />
+<meta property="twitter:title" content="iOS 18 and Xcode 16 New Feature" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"Dylan"},"url":"/iOS_18_Investigation/","image":"/assets/images/iOS_18/preview.jpeg","headline":"iOS 18 and Xcode 16 New Feature","dateModified":"2024-06-20T00:00:00+08:00","datePublished":"2024-06-20T00:00:00+08:00","description":"New feature","author":{"@type":"Person","name":"Dylan"},"mainEntityOfPage":{"@type":"WebPage","@id":"/iOS_18_Investigation/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<link href="/assets/css/prism.css" rel="stylesheet">
+
+<link href="/assets/css/theme.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+
+</head>
+
+
+
+
+<body>
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Sen:400,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+<!-- Begin Sidebar Navigation
+================================================== -->
+
+<div class="sidebar">    
+</div>   
+<div class="nav-icon">
+    <div class="hamburger-bar"></div>
+</div>
+<div id="blackover-nav" class="blackover"></div>
+<nav id="menu">
+    <ul>
+        <h3>Navigation</h3>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/authors">Contributors <span class="badge badge-primary">new</span></a></li>
+        <li><a target="_blank" href="https://bootstrapstarter.com/jekyll-theme-memoirs/">Get Memoirs</a></li>      
+        <li><a href="/contact">Contact</a></li>       
+    </ul>   
+</nav>
+
+<script src="/assets/js/lunr.js"></script>
+
+<style>
+    
+</style>
+
+<div class="wrap-search">
+    <div class="d-flex align-items-center ml-auto">
+        <i class="fas fa-search show-search"></i>
+        <form class="bd-search ml-3" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+            <input type="text" class="form-control bigradius text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+        </form>
+    </div>
+</div>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+
+<!-- End Sidebar Navigation
+================================================== -->
+
+<div class="site-content ">
+
+<div class="container">
+
+    <!-- Site Logo/Name
+    ================================================== -->
+   
+    <a class="navbar-brand" href="/">
+        <img src="/assets/images/logo.png" alt="Memoirs">
+    </a>  
+   
+
+    <!-- Site Tag
+    ================================================== -->
+    
+
+    <!-- Content
+    ================================================== -->
+    <div class="main-content">
+        <div class="entry-header">
+    <!-- Post Title -->
+    <h1 class="posttitle">iOS 18 and Xcode 16 New Feature</h1>
+    <!-- Author & Date  Box -->
+    
+    
+    <div class="d-flex align-items-center mt-4">
+        <div>
+            
+            <img class="author-thumb" src="/assets/images/avatar_2024.jpg" alt="Dylan">
+            
+        </div>            
+        <div>
+        Written by Dylan on 
+        <span class="post-date"><time class="post-date" datetime="2024-06-20">20 Jun 2024</time></span>           
+        
+        </div>            
+    </div>
+    
+</div>
+
+<!-- Adsense under title if enabled from _config.yml (change your pub id and slot) -->
+
+
+<!-- Featured Image -->
+
+<div class="entry-featured-image">
+    
+    <img class="featured-image " src="/assets/images/iOS_18/preview.jpeg" alt="iOS 18 and Xcode 16 New Feature">
+    
+</div>
+
+
+<!-- Content -->
+<!-- Post, Page Content
+================================================== -->
+<div class="article-post">
+    <!-- Toc if any -->
+    
+    
+        <p><em>Here are some updates and demos for iOS 18 and Xcode 16 recorded</em></p>
+    
+    <div class="toc mt-4 mb-4 lead">
+        <h3 class="font-weight-bold">Summary</h3>
+        <ul>
+  <li><a href="#new-feature">New feature</a>
+    <ul>
+      <li><a href="#ios-18-preview"><a href="https://www.apple.com/ios/ios-18-preview/">iOS 18 Preview</a></a></li>
+    </ul>
+  </li>
+  <li><a href="#release-note">Release Note</a>
+    <ul>
+      <li><a href="#ios-18-release-note"><a href="https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-release-notes">iOS 18 Release Note</a></a></li>
+      <li><a href="#xcode-16-release-note"><a href="https://developer.apple.com/documentation/xcode-release-notes/xcode-16-release-notes">Xcode 16 Release Note</a></a></li>
+      <li><a href="#all-technologies-updates"><a href="https://developer.apple.com/documentation/updates">All Technologies Updates</a></a></li>
+    </ul>
+  </li>
+  <li><a href="#whats-new-in-uikit"><a href="https://developer.apple.com/videos/play/wwdc2024/10118/">What’s new in UIKit</a></a>
+    <ul>
+      <li><a href="#automatic-trait-tracking"><a href="https://developer.apple.com/documentation/uikit/app_and_environment/automatic_trait_tracking">Automatic trait tracking</a></a></li>
+      <li><a href="#list-improvements">List improvements</a></li>
+      <li><a href="#uicalendarselectionweekofyear"><a href="https://developer.apple.com/documentation/uikit/uicalendarselectionweekofyear">UICalendarSelectionWeekOfYear</a></a></li>
+      <li><a href="#symbol-animations"><a href="https://developer.apple.com/sf-symbols/">Symbol animations</a></a></li>
+    </ul>
+  </li>
+  <li><a href="#navigation"><a href="https://developer.apple.com/documentation/Updates/UIKit#Navigation">Navigation</a></a>
+    <ul>
+      <li><a href="#evolve-your-document-launch-experience"><a href="https://developer.apple.com/videos/play/wwdc2024/10132/">Evolve your document launch experience</a></a></li>
+      <li><a href="#uitab-and-tabsidebar">UITab and TabSidebar</a></li>
+      <li><a href="#preferredtransition"><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/4448100-preferredtransition">PreferredTransition</a></a></li>
+    </ul>
+  </li>
+  <li><a href="#framework-interoperability"><a href="https://developer.apple.com/documentation/Updates/UIKit#Framework-interoperability">Framework interoperability</a></a>
+    <ul>
+      <li><a href="#ulkit-and-swiftul-interoperability">UlKit and SwiftUl interoperability</a>
+        <ul>
+          <li><a href="#update-link"><a href="https://developer.apple.com/documentation/uikit/uiupdatelink">Update link</a></a></li>
+        </ul>
+      </li>
+      <li><a href="#sensory-feedback"><a href="https://developer.apple.com/documentation/uikit/uicanvasfeedbackgenerator?language=objc%2F">Sensory feedback</a></a></li>
+      <li><a href="#text-improvements">Text improvements</a>
+        <ul>
+          <li><a href="#whats-new-in-location-authorization"><a href="https://developer.apple.com/cn/videos/play/wwdc2024/10212/?time=112">What’s new in location authorization</a></a></li>
+        </ul>
+      </li>
+      <li><a href="#accessorysetupkit"><a href="https://developer.apple.com/videos/play/wwdc2024/10203/">AccessorySetupKit</a></a></li>
+    </ul>
+  </li>
+  <li><a href="#whats-new-in-swift">What’s new in Swift<a href="https://developer.apple.com/videos/play/wwdc2024/10136/"></a></a>
+    <ul>
+      <li><a href="#data-race-safety">Data-race safety</a></li>
+      <li><a href="#add-collection-operations-on-noncontiguous-elements">Add Collection Operations on Noncontiguous Elements</a></li>
+      <li><a href="#access-level-modifiers-on-import-declarations">Access-level modifiers on import declarations</a></li>
+      <li><a href="#upgrades-for-noncopyable-types">Upgrades for noncopyable types</a></li>
+      <li><a href="#typed-throws">Typed throws</a></li>
+      <li><a href="#meet-swift-testing"><a href="https://developer.apple.com/videos/play/wwdc2024/10179/">Meet Swift Testing</a></a></li>
+    </ul>
+  </li>
+  <li><a href="#swift-charts">Swift Charts</a></li>
+  <li><a href="#whats-new-in-swiftdata"><a href="https://developer.apple.com/videos/play/wwdc2024/10137/">What’s new in SwiftData</a></a></li>
+  <li><a href="#whats-new-in-swiftui"><a href="https://developer.apple.com/videos/play/wwdc2024/10144/">What’s new in SwiftUI</a></a></li>
+  <li><a href="#whats-new-in-xcode-16">What’s new in Xcode 16</a></li>
+</ul>
+    </div>
+    
+    <!-- End Toc -->
+    <h1 id="new-feature">New feature</h1>
+
+<h2 id="ios-18-preview"><a href="https://www.apple.com/ios/ios-18-preview/">iOS 18 Preview</a></h2>
+
+<p><img src="../assets/images/iOS_18/home.jpeg" alt="iOS 18 Preview" /></p>
+
+<h1 id="release-note">Release Note</h1>
+<h2 id="ios-18-release-note"><a href="https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-release-notes">iOS 18 Release Note</a></h2>
+
+<h2 id="xcode-16-release-note"><a href="https://developer.apple.com/documentation/xcode-release-notes/xcode-16-release-notes">Xcode 16 Release Note</a></h2>
+
+<p><img src="../assets/images/iOS_18/xcode_release_note.PNG" alt="" /></p>
+<h2 id="all-technologies-updates"><a href="https://developer.apple.com/documentation/updates">All Technologies Updates</a></h2>
+<p><br /></p>
+
+<h1 id="whats-new-in-uikit"><a href="https://developer.apple.com/videos/play/wwdc2024/10118/">What’s new in UIKit</a></h1>
+<p><a href="https://developer.apple.com/documentation/Updates/UIKit#General">General</a></p>
+
+<h2 id="automatic-trait-tracking"><a href="https://developer.apple.com/documentation/uikit/app_and_environment/automatic_trait_tracking">Automatic trait tracking</a></h2>
+
+<p>Leverage automatic trait usage tracking inside key update methods such as layoutSubviews(), eliminating the need for manual trait change registration and invalidation.</p>
+
+<p align="left">    
+<img src="../assets/images/iOS_18/trait_new.PNG" width="330" />
+<img src="../assets/images/iOS_18/trait_old.PNG" width="330" />
+</p>
+
+<h2 id="list-improvements">List improvements</h2>
+<p>Take advantage of enhancements to <code>UIListContentConfiguration</code>, which now automatically updates to match the style of the containing list by using the new <code>UIListEnvironment</code> trait from the trait collection, removing the need to instantiate a configuration for a specific list style yourself.</p>
+
+<pre><code>func configurations(for location: FileLocation) -&gt;
+    (UIListContentConfiguration, UIBackgroundConfiguration) {
+
+    var contentConfiguration = UIListContentConfiguration.cell()
+    let backgroundConfiguration = UIBackgroundConfiguration.listCell()
+
+    contentConfiguration.text = location.title
+    contentConfiguration.image = location.thumbnailImage
+
+    return (contentConfiguration, backgroundConfiguration)
+ }
+</code></pre>
+<p align="left">    
+<img src="../assets/images/iOS_18/list_improvements_old.PNG" width="330" />
+<img src="../assets/images/iOS_18/list_improvements_new.PNG" width="330" />
+</p>
+
+<p align="left">    
+<img src="../assets/images/iOS_18/list_improvements_api.png" width="300" />
+</p>
+
+<h2 id="uicalendarselectionweekofyear"><a href="https://developer.apple.com/documentation/uikit/uicalendarselectionweekofyear">UICalendarSelectionWeekOfYear</a></h2>
+<p>Select a specific week of the year in <code>UICalendarView</code> using the new <code>UICalendarSelectionWeekOfYear</code> selection option.</p>
+
+<p>    
+<img src="../assets/images/iOS_18/calendarview_demo_view.png" width="120" align="right" />
+</p>
+
+<pre><code>// Set the selection behavior.
+let selection = UICalendarSelectionWeekOfYear(delegate: self)
+calendarView.selectionBehavior = selection
+
+// Set the 11th week in the year 2024.
+selection.selectedWeekOfYear = DateComponents(
+    calendar: Calendar(identifier: .gregorian),
+    weekOfYear: 11,
+    yearForWeekOfYear: 2024)
+    
+</code></pre>
+
+<h2 id="symbol-animations"><a href="https://developer.apple.com/sf-symbols/">Symbol animations</a></h2>
+<p>Add repeat, wiggle, breathe, and rotate effects to <a href="https://developer.apple.com/sf-symbols/">SF Symbols</a>.</p>
+
+<pre><code>VStack{
+        Spacer()
+        Image(systemName: "arrow.down.circle.fill")
+            .resizable()
+            .frame(width: 100, height: 100)
+            .symbolEffect(.wiggle)
+            .symbolRenderingMode(.hierarchical)
+                .foregroundColor(.purple)
+        Spacer()
+        Image(systemName: "figure.skiing.crosscountry.circle.fill")
+            .resizable()
+            .frame(width: 100, height: 100)
+            .symbolEffect(.breathe)
+            .symbolRenderingMode(.hierarchical)
+                .foregroundColor(.indigo)
+        
+        Spacer()
+        Image(systemName: "figure.skiing.crosscountry.circle.fill")
+            .resizable()
+            .frame(width: 100, height: 100)
+            .symbolEffect(.rotate)
+            .symbolRenderingMode(.monochrome)
+            .foregroundColor(.indigo)
+        Spacer()
+    }
+</code></pre>
+<p align="center">    
+<img src="../assets/images/iOS_18/vedio/symbol.gif" width="500" />
+</p>
+
+<p><br /></p>
+
+<h1 id="navigation"><a href="https://developer.apple.com/documentation/Updates/UIKit#Navigation">Navigation</a></h1>
+
+<h2 id="evolve-your-document-launch-experience"><a href="https://developer.apple.com/videos/play/wwdc2024/10132/">Evolve your document launch experience</a></h2>
+<p>Showcase your app and its unique identity with a new, customizable launch design for document-based apps. In UIKit, define <code>launchOptions</code> on your <code>UIDocumentViewController</code>.</p>
+<ul>
+  <li>SwiftUl
+    <ul>
+      <li>Recompile with the iOS 18 SDK</li>
+      <li>Add a DocumentGroupLaunchScene</li>
+    </ul>
+  </li>
+  <li>UlKit
+    <ul>
+      <li>Make UIDocumentViewController the root</li>
+      <li>Apply customizations to the launchOptions</li>
+    </ul>
+  </li>
+</ul>
+
+<p>    
+<img src="../assets/images/iOS_18/launch_doc_demo.png" width="150" align="right" />
+</p>
+
+<pre><code> // Customize launch options.
+    launchOptions.title = "My Text Editor"
+    launchOptions.background.backgroundColor = .darkGray
+    
+    // Provide an action for the secondary action.
+    let templateAction = LaunchOptions.createDocumentAction(withIntent: .template)
+    templateAction.title = "Choose a Template"
+    launchOptions.secondaryAction = templateAction
+    // Update the background
+    launchOptions.background.image = UIImage(named: "icon")
+</code></pre>
+
+<p><br /></p>
+
+<h2 id="uitab-and-tabsidebar">UITab and TabSidebar</h2>
+<p>Make your app’s navigation more immersive by adopting the new tab bar on iPad. If your app presents a rich hierarchy of tab items, set the <code>mode</code> to <code>UITabBarController.Mode.tabSidebar</code> to automatically switch between the tab bar and sidebar representations. In SwiftUI, use <code>sidebarAdaptable</code>.
+<img src="../assets/images/iOS_18/tab_api_1.png" alt="" /></p>
+<ul>
+  <li>
+    <p>UITabBarController adds a new label type UITab, which can set title, subtitle, image, badgeValue, etc.</p>
+  </li>
+  <li>
+    <p>UITabBarControllerDelegate adds multiple UITab-related delegate methods.</p>
+  </li>
+</ul>
+
+<p><img src="../assets/images/iOS_18/tab_api_2.png" alt="" /></p>
+
+<p>Demo</p>
+<pre><code>    tabBarController.mode = .tabSidebar
+    // Assign an array of tabs.
+    tabBarController.tabs = [
+       UITab(title: "First",
+             image: UIImage(systemName: "1.circle"),
+             identifier: "First Tab") { _ in
+                 // Return the view controller that the tab displays.
+                 firstHostingController
+             },
+       UITab(title: "Second",
+             image: UIImage(systemName: "2.circle"),
+             identifier: "Second Tab") { _ in
+                 // Return the view controller that the tab displays.
+                 secondHostingController
+             },
+       UITab(title: "Three",
+             image: UIImage(systemName: "3.circle"),
+             identifier: "Three Tab") { _ in
+                 // Return the view controller that the tab displays.
+                 DocumentViewController()
+             },
+       
+    ]
+</code></pre>
+<p>iPhone and iPad demo</p>
+<p align="left"> 
+<img src="../assets/images/iOS_18/tab_demo_1.png" width="300" alt="iPhone" align="center" />
+<img src="../assets/images/iOS_18/vedio/UItab.gif" width="300" alt="iPad" align="center" />
+</p>
+
+<h2 id="preferredtransition"><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/4448100-preferredtransition">PreferredTransition</a></h2>
+
+<p>Transition between views in a way that feels fluid and consistent using a systemwide zoom transition. In UIKit, configure your view controller’s <code>preferredTransition</code> to <code>zoom(options:sourceViewProvider:)</code>. In SwiftUI, use <code>zoom(sourceID:in:)</code>.</p>
+<p align="left">    
+<img src="../assets/images/iOS_18/prefer_transition_left.png" width="320" />
+<img src="../assets/images/iOS_18/prefer_transition_right.png" width="320" />
+</p>
+
+<h1 id="framework-interoperability"><a href="https://developer.apple.com/documentation/Updates/UIKit#Framework-interoperability">Framework interoperability</a></h1>
+<h2 id="ulkit-and-swiftul-interoperability">UlKit and SwiftUl interoperability</h2>
+<p>Use SwiftUI animations from AppKit and UIKit to create a consistent animation experience across apps that use multiple UI frameworks. In UIKit, use <code>animate(with:changes:completion:)</code>. In AppKit, use <code>animate(with:changes:completion:)</code>.</p>
+<ul>
+  <li>Animations</li>
+</ul>
+
+<p><img src="../assets/images/iOS_18/uikit_swiftUI_old.png" alt="" /></p>
+
+<pre><code>// Animate changes to one or more views using the specified SwiftUI animation. Animations performed using this method can be smoothly retargeted while preserving velocity, just like animations in SwiftUI views.
+Task {
+    // Begins an animation to move the view to a new location.
+    UIView.animate(with: .spring(duration: 1.0)) {
+        myView.center = CGPoint(x: 200, y: 200)
+    }
+    try await Task.sleep(for: .seconds(0.5))
+    
+    // Retargets the running animations to move the view to a different location.
+    UIView.animate(with: .spring) {
+        myView.center = CGPoint(x: 100, y: 400)
+    }
+}
+</code></pre>
+
+<p>UIKit and UISwift Animations</p>
+<p align="left"> 
+<img src="../assets/images/iOS_18/vedio/swiftUI_animation_1.gif" width="300" alt="iPhone" align="center" />
+<img src="../assets/images/iOS_18/vedio/swiftUI_animation_2.gif" width="300" alt="iPad" align="center" />
+</p>
+
+<ul>
+  <li>Gesture recognizers</li>
+</ul>
+
+<pre><code>switch gesture.state {
+case .changed:
+    UIView.animate(.interactiveSpring) {
+        bead.center = gesture.translation
+    }
+
+case .ended:
+    UIView.animate(.spring) {
+        bead.center = endOfBracelet
+    }
+}
+</code></pre>
+<h3 id="update-link"><a href="https://developer.apple.com/documentation/uikit/uiupdatelink">Update link</a></h3>
+<p>With a UI update link, you can follow the progress of each UI update and express preferences about how those updates happen. Use a UI update link when you need precise and predictable control over the UI update process.
+<code>UIUpdateLink</code> similar to <code>CADisplayLink</code>
+More features</p>
+<ul>
+  <li>View tracking</li>
+  <li>Low latency applications</li>
+  <li>Better performance</li>
+</ul>
+
+<p>    
+<img src="../assets/images/iOS_18/vedio/UIUpdateLink.gif" width="400" align="right" />
+</p>
+
+<pre><code>let updateLink = UIUpdateLink(
+    view: view,
+    actionTarget: self,
+    selector: #selector(update)
+)
+updateLink.requiresContinuousUpdates = true
+updateLink.isEnabled = true
+
+@objc func update(updateLink: UIUpdateLink,
+                  updateInfo: UIUpdateInfo) {
+    view.center.y = sin(updateInfo.modelTime)
+        * 100 + view.bounds.midY
+}
+</code></pre>
+
+<h2 id="sensory-feedback"><a href="https://developer.apple.com/documentation/uikit/uicanvasfeedbackgenerator?language=objc%2F">Sensory feedback</a></h2>
+<p>Use canvas feedback to indicate when a drawing event occurs, such as an object snapping to a guide or ruler. When using Apple Pencil Pro with a compatible iPad, this type of feedback can provide a tactile response.</p>
+
+<p><img src="../assets/images/iOS_18/sensory_feedback.png" alt="" /></p>
+
+<h2 id="text-improvements">Text improvements</h2>
+<p><a href="https://developer.apple.com/videos/play/wwdc2024/10118/?time=7">Using new attributes for highlight</a></p>
+
+<p>    
+<img src="../assets/images/iOS_18/text_improvements.png" width="100" align="right" />
+</p>
+
+<pre><code>var attributes = [NSAttributedString.Key: Any]()
+    // Highlight style
+    attributes[.textHighlightStyle] =
+    NSAttributedString.TextHighlightStyle.default
+    // Highlight color scheme
+    attributes[.textHighlightColorScheme] =
+    NSAttributedString.TextHighlightColorScheme.purple
+</code></pre>
+
+<p><img src="../assets/images/iOS_18/text_improvements_api.png" alt="" /></p>
+
+<h3 id="whats-new-in-location-authorization"><a href="https://developer.apple.com/cn/videos/play/wwdc2024/10212/?time=112">What’s new in location authorization</a></h3>
+<p>Location Authorization 2.0. Learn new recommendations and tips for getting the authorization you need, and new diagnostics that notify you when you’re not meeting authorization goals.</p>
+
+<p>    
+<img src="../assets/images/iOS_18/local_api.png" width="240" align="right" />
+</p>
+
+<pre><code>// Iterating liveUpdates to reflect current location
+Task {
+    let updates = CLLocationUpdate.liveUpdates()
+    for try await update in updates {
+        if let loc = update.location {
+            updateLocationUI(location: loc)
+        }
+    }
+}
+</code></pre>
+
+<p>Demo:
+<img src="../assets/images/iOS_18/vedio/ScreenRecording_06-19-2024_18-47-40_1.gif" alt="" /></p>
+
+<!-- ![](../assets/images/iOS_18/file/AdoptingLiveUpdatesInCoreLocation.zip) -->
+
+<h2 id="accessorysetupkit"><a href="https://developer.apple.com/videos/play/wwdc2024/10203/">AccessorySetupKit</a></h2>
+<p>Elevate your accessory setup experience with AccessorySetupKit. Display a beautiful pairing dialog with an image of your Bluetooth or Wi-Fi accessory — no trip to the Settings app required. Discover how to improve privacy by pairing only your app with an accessory. And learn how you can migrate existing accessories so they can be managed by AccessorySetupKit.</p>
+
+<p>Demo
+<img src="../assets/images/iOS_18/vedio/ScreenRecording_06-19-2024_18-32-46_1.gif" alt="" />
+<!-- ![](../assets/images/iOS_18/file/AuthorizingABluetoothAccessoryToShareADiceRoll.zip) --></p>
+
+<h1 id="whats-new-in-swift">What’s new in Swift<a href="https://developer.apple.com/videos/play/wwdc2024/10136/"></a></h1>
+<ul>
+  <li><a href="https://developer.apple.com/documentation/updates/swift">Swift updates</a></li>
+  <li><a href="https://developer.apple.com/videos/play/wwdc2024/10169/">Migrate your app to Swift 6</a></li>
+</ul>
+
+<p><a href="https://developer.apple.com/cn/videos/play/wwdc2024/10170/">Consume noncopyable types in swift</a></p>
+
+<p><img src="../assets/images/iOS_18/swift_new_plan.png" alt="" /></p>
+
+<h2 id="data-race-safety">Data-race safety</h2>
+<p>Swift 6 improves concurrency checking further, and the Swift team say it “removes many false-positive data-race warnings” that were present in 5.10. It also introduces several targeted changes that will do wonders to make concurrency easier to adopt</p>
+
+<p>Swift 6 before and now display</p>
+<p align="left"> 
+<img src="../assets/images/iOS_18/data_race_safe_old.png" width="320" />
+<img src="../assets/images/iOS_18/data_race_safe_new.png" width="320" />
+</p>
+
+<h2 id="add-collection-operations-on-noncontiguous-elements">Add Collection Operations on Noncontiguous Elements</h2>
+<p>Operate on noncontiguous ranges in collections using <code>RangeSet</code> and <code>DiscontiguousSlice</code>.</p>
+
+<pre><code>struct ExamResult {
+    var student: String
+    var score: Int
+}
+// We can get a RangeSet containing the indices of all students who score 85% or higher like this
+        let results = [
+            ExamResult(student: "Eric Effiong", score: 95),
+            ExamResult(student: "Maeve Wiley", score: 70),
+            ExamResult(student: "Otis Milburn", score: 100)
+        ]
+// And if we wanted to get access to those students, we can use a new Collection subscript:
+        let topResults = results.indices { student in
+            student.score &gt;= 85
+        }
+       
+        for result in results[topResults] {
+            print("\(result.student) scored \(result.score)%")
+        }
+</code></pre>
+
+<h2 id="access-level-modifiers-on-import-declarations">Access-level modifiers on import declarations</h2>
+<p>Adds the ability to mark import declarations with access control modifiers, such as <strong>private import SomeLibrary</strong>.</p>
+
+<h2 id="upgrades-for-noncopyable-types">Upgrades for noncopyable types</h2>
+<p>In that code, the compiler enforces that <code>message.read()</code> can only ever be called once, because it consumes the object.</p>
+
+<p>    
+<img src="../assets/images/iOS_18/noncopyable_image.png" width="330" align="right" />
+</p>
+
+<pre><code>struct Message: ~Copyable {
+    var agent: String
+    private var message: String
+
+    init(agent: String, message: String) {
+        self.agent = agent
+        self.message = message
+    }
+    consuming func read() {
+        print("\(agent): \(message)")
+    }
+}
+ func createMessage() {
+        let message = Message(agent: "Ethan Hunt", message: "You need to abseil down a skyscraper for some reason.")
+        message.read()
+}
+</code></pre>
+
+<h2 id="typed-throws">Typed throws</h2>
+<pre><code>enum IntegerParseError: Error {
+  case nonDigitCharacter(String, index: String.Index)
+}
+
+func parse(string: String) throws -&gt; Int {
+  for index in string.indices {
+    // ...
+    throw IntegerParseError.nonDigitCharacter(string, index: index)
+  }
+}
+
+do {
+  let value = try parse(string: "1+234")
+}
+catch let error as IntegerParseError {
+  // ...
+}
+catch {
+   // error is 'any Error'
+}
+
+func parse(string: String) throws -&gt; Int {
+  //...
+}
+func parse(string: String) -&gt; Int {
+  //...
+}
+</code></pre>
+<p>Swift 6</p>
+
+<pre><code>
+func parse(string: String) throws(IntegerParseError) -&gt; Int {
+  for index in string.indices {
+    // ...throw IntegerParseError.nonDigitCharacter(string, index: index)
+  }
+}
+
+do {
+  let value = try parse(string: "1+234")
+}
+catch {
+   // error is 'IntegerParseError'
+}
+
+func parse(string: String) throws(any Error) -&gt; Int {
+  //...
+}
+
+func parse(string: String) throws(Never) -&gt; Int {
+  //...
+}
+
+</code></pre>
+
+<h2 id="meet-swift-testing"><a href="https://developer.apple.com/videos/play/wwdc2024/10179/">Meet Swift Testing</a></h2>
+<p>Introducing Swift Testing: a new package for testing your code using Swift. Explore the building blocks of its powerful new API, discover how it can be applied in common testing workflows, and learn how it relates to XCTest and open source Swift.</p>
+
+<p align="left"> 
+<img src="../assets/images/iOS_18/swift_testing_1.png" width="330" />
+<img src="../assets/images/iOS_18/swift_testing_2.png" width="330" />
+</p>
+
+<p align="left"> 
+<img src="../assets/images/iOS_18/swift_testing_3.png" width="330" />
+<img src="../assets/images/iOS_18/swift_testing_4.png" width="330" />
+</p>
+
+<h1 id="swift-charts">Swift Charts</h1>
+<p>The plot thickens! Learn how to render beautiful charts representing math functions and extensive datasets using function and vectorized plots in your app. Whether you’re looking to display functions common in aerodynamics, magnetism, and higher order field theory, or create large interactive heat maps, Swift Charts has you covered.</p>
+
+<ul>
+  <li>Added new plot API variants at iOS 18</li>
+</ul>
+
+<p><img src="../assets/images/iOS_18/swift_chart_image.png" alt="" /></p>
+<ul>
+  <li>Charts demo</li>
+</ul>
+
+<p><img src="../assets/images/iOS_18/swift_chart_demo.png" alt="" /></p>
+<ul>
+  <li>Source Demos</li>
+</ul>
+
+<p>    
+<img src="../assets/images/iOS_18/swift_chart_source_demo_1.png" width="180" align="right" />
+</p>
+
+<pre><code>  Chart {
+        LinePlot(x: "x", y: "y", t: "t", domain: -.pi ... .pi) {
+                t in
+                let x = sqrt(2) * pow(sin(t), 3)
+                let y = cos(t) * (2 - cos(t) - pow(cos(t), 2))
+                return (x, y)
+           }
+            .foregroundStyle(.red)
+            .opacity(0.8)
+        }
+        .chartXScale(domain: -3 ... 3)
+        .chartYScale(domain: -4 ... 2)
+</code></pre>
+<p><br /></p>
+<p>    
+<img src="../assets/images/iOS_18/swift_chart_source_demo_2.png" width="150" align="right" />
+</p>
+
+<pre><code> Chart {
+   AreaPlot(x: "x", yStart: "cos(x)", yEnd: "sin(x)") { x in
+           (yStart: cos(x / 180 * .pi),
+            yEnd: sin(x / 180 * .pi))
+        }
+            .foregroundStyle(.orange)
+            .opacity(0.8)
+    }
+    .chartXScale(domain: -315 ... 315)
+    .chartYScale(domain: -5 ... 5)
+</code></pre>
+<p><br /></p>
+
+<h1 id="whats-new-in-swiftdata"><a href="https://developer.apple.com/videos/play/wwdc2024/10137/">What’s new in SwiftData</a></h1>
+
+<p><a href="https://developer.apple.com/videos/play/wwdc2024/10138">Create a custom data store with SwiftData</a></p>
+
+<p><a href="https://developer.apple.com/videos/play/wwdc2024/10075">Track model changes with SwiftData history</a></p>
+
+<p>Combining Core Data’s proven persistence technology and Swift’s modern concurrency features, SwiftData enables you to add persistence to your app quickly, with minimal code and no external dependencies. Using modern language features like macros, SwiftData enables you to write code that is fast, efficient, and safe, enabling you to describe the entire model layer (or object graph) for your app. The framework handles storing the underlying model data, and optionally, syncing that data across multiple devices.</p>
+
+<p><img src="../assets/images/iOS_18/swift_data_api.png" alt="" /></p>
+<h1 id="whats-new-in-swiftui"><a href="https://developer.apple.com/videos/play/wwdc2024/10144/">What’s new in SwiftUI</a></h1>
+<ul>
+  <li><a href="https://developer.apple.com/videos/play/wwdc2024/10150/?time=786">SwiftUI essentials</a></li>
+  <li><a href="https://developer.apple.com/documentation/Updates/SwiftUI">SwiftUI updates</a></li>
+</ul>
+
+<h1 id="whats-new-in-xcode-16">What’s new in Xcode 16</h1>
+<p><strong>Support breakpoint resumption when downloading various Components.</strong></p>
+
+<p align="left"> 
+<img src="../assets/images/iOS_18/xcode_16_1.png" width="320" />
+<img src="../assets/images/iOS_18/xcode_16_2.png" width="320" />
+</p>
+
+<p><strong>Added Other Components of Predictive Code Completion Model, which is mainly used for code prediction function</strong>
+<img src="../assets/images/iOS_18/xcode_16_3.png" alt="" />
+<strong>Added Swift Testing</strong></p>
+<p align="left"> 
+<img src="../assets/images/iOS_18/xcode_16_4.png" width="320" />
+<img src="../assets/images/iOS_18/xcode_16_5.png" width="320" />
+</p>
+<p><strong>Project navigator New File/Template menu</strong>
+<code>New File </code>–&gt; <code>New Empty File</code> : The original functions are retained
+<code>New File from Template...</code>: Swift source files can be created quickly</p>
+<p align="left"> 
+<img src="../assets/images/iOS_18/xcode_16_6.png" width="320" />
+<img src="../assets/images/iOS_18/xcode_16_7.png" width="320" />
+</p>
+
+<p><strong>Asset management</strong>
+<img src="../assets/images/iOS_18/xcode_16_8.png" alt="" /></p>
+<p align="left"> 
+<img src="../assets/images/iOS_18/xcode_16_9.png" width="320" />
+<img src="../assets/images/iOS_18/vedio/xcode_icon.gif" width="320" />
+</p>
+
+</div>
+
+<!-- Rating -->
+
+<div class="rating mt-4 mb-4 d-flex align-items-center">
+    <strong class="mr-1">Rating:</strong> <div class="rating-holder">
+<div class="c-rating c-rating--regular" data-rating-value="4.5">
+  <button>1</button>
+  <button>2</button>
+  <button>3</button>
+  <button>4</button>
+  <button>5</button>
+</div>
+</div>
+</div>
+
+
+<!-- Author Box if enabled from _config.yml -->
+<!-- Author Box -->
+
+
+<div class="authorbox mb-5 mt-5 pt-4 pb-4">   
+    <div class="row">
+        <div class="wrapavname col-md-3 text-center">
+            
+            <img  class="author-thumb" src="/assets/images/avatar_2024.jpg" alt="Dylan">
+            
+            <p class="mt-4 mb-0 small text-center">
+                <a target="_blank" class="d-inline-block mx-1 text-dark" href=""><i class="fa fa-link"></i></a> 
+                <a target="_blank" class="d-inline-block mx-1 text-dark" href=""><i class="fab fa-twitter"></i></a>
+                <a class="d-inline-block mx-1 text-dark" href="mailto:Leonsongfeng@gmail.com"><i class="fa fa-envelope"></i></a>
+            </p>
+        </div>
+        <div class="col-md-9">
+            <h4>Dylan</h4>
+            <p class="mt-3 mb-0">一些踩坑和学习记录</p>
+        </div>
+    </div> 
+</div> 
+
+
+
+<!-- Comments if not disabled with comments: false -->
+<!-- Comments
+================================================== -->
+ 
+<div class="comments mt-5">
+    <button class="btn btn-outline-dark py-2 px-5 d-block w-100 show-comments"><i class="fa fa-comments text-muted"></i> &nbsp; Load Comments</button>         
+    <div id="comments">  
+        <h4 class="mb-4">Comments</h4>                 
+            <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+     
+    <div class="clearfix"></div>              
+    </div>    
+</div>       
+
+
+<!-- Share -->
+<div class="share">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=iOS 18 and Xcode 16 New Feature&url=/iOS_18_Investigation/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=/iOS_18_Investigation/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=/iOS_18_Investigation/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+</div>
+
+
+<!-- Related Post -->
+<!-- Related Posts
+================================================== -->
+<div class=" related-posts ">  
+
+    
+    <h2 class="text-center mb-4">Explore more like this</h2>
+    
+    
+    <div class="d-flex justify-content-center align-items-center">
+    
+    <!-- Categories -->
+    
+    
+    <a class="smoothscroll badge badge-primary text-capitalize" href="/categories#Technology">Technology</a>                
+    
+
+    <!-- Tags -->  
+    
+                    
+    <a class="smoothscroll badge badge-primary text-capitalize" href="/tags#Study">Study</a>               
+    
+
+    </div>
+
+    
+    
+    
+    <div class="blog-grid-container">
+        
+        
+            
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+            
+        
+            
+            <!-- begin post -->
+
+
+<div class="blog-grid-item">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/SwiftUI-Study/">
+                
+
+                    
+                        <img class="img-thumb" src="/assets/images/install_githubpage/home.jpg" alt="SwiftUI 学习笔记"> 
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/SwiftUI-Study/">SwiftUI 学习笔记</a>
+                
+            </h2>
+            <h4 class="card-text">学习SwiftUI 参考Github 示例
+</h4>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" src="/assets/images/avatar_2024.jpg" alt="Dylan">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name font-weight-bold">Dylan</span> 
+                
+                <span class="post-date">20 May 2024</span>
+                </span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+            
+            
+            
+        
+        
+        
+            
+            
+        
+            
+        
+            
+            <!-- begin post -->
+
+
+<div class="blog-grid-item">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/github-page-config/">
+                
+
+                    
+                        <img class="img-thumb" src="/assets/images/install_githubpage/home.jpg" alt="Github Page 配置踩坑记录"> 
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/github-page-config/">Github Page 配置踩坑记录</a>
+                
+            </h2>
+            <h4 class="card-text">使用jekyll本地调试可以访问静态资源，但是上传至GitHub无法访问
+</h4>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" src="/assets/images/avatar_2024.jpg" alt="Dylan">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name font-weight-bold">Dylan</span> 
+                
+                <span class="post-date">12 May 2024</span>
+                </span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+            
+            
+            
+        
+        
+        </div>        
+</div>
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    <script type="application/ld+json">
+    {
+    "@context": "http://schema.org/",
+    "@type": "Review",
+    "itemReviewed": {
+    "@type": "Thing",
+    "name": "iOS 18 and Xcode 16 New Feature"
+    },
+    "author": {
+    "@type": "Person",
+    "name": "Dylan"
+    },
+    "datePublished": "2024-06-20",
+    "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "4.5",
+    "bestRating": "5"
+    }
+    }
+    </script>
+
+    </div>
+
+    
+    <!-- Newsletter
+    ================================================== -->
+    <div class="newsletter text-center">
+        <span class="h4"><img src="/assets/images/logo.png" class="newsletter-logo" alt="Memoirs"> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group d-inline-flex">
+            <input type="email" placeholder="Your e-mail" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+    </div>
+    
+    
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 text-center text-lg-left">
+                Copyright © 2024 Memoirs 
+            </div>
+            <div class="col-md-6 col-sm-12 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/memoirs-free-jekyll-theme/">Memoirs Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts (if you need bootstrap.js, please add it yourself. I didn't use it for performance reasons, it was not needed in this theme)
+================================================== -->
+
+<script src="/assets/js/prism.js"></script>
+
+<script src="/assets/js/theme.js"></script>
+
+
+
+
+<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
+
+
+</body>
+</html>

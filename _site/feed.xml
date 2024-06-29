@@ -2,12 +2,583 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Memoirs</title>
-    <description>I will take you on the fabulous world of exploration. Travel, culture, lifestyle. Eat, Pray, Love!</description>
+    <description>I will present some learning records, notes, and ideas here</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 29 May 2024 19:58:29 +0800</pubDate>
-    <lastBuildDate>Wed, 29 May 2024 19:58:29 +0800</lastBuildDate>
+    <pubDate>Sat, 29 Jun 2024 19:21:55 +0800</pubDate>
+    <lastBuildDate>Sat, 29 Jun 2024 19:21:55 +0800</lastBuildDate>
     <generator>Jekyll v4.2.0</generator>
+    
+      <item>
+        <title>iOS 18 and Xcode 16 New Feature</title>
+        <description>&lt;h1 id=&quot;new-feature&quot;&gt;New feature&lt;/h1&gt;
+
+&lt;h2 id=&quot;ios-18-preview&quot;&gt;&lt;a href=&quot;https://www.apple.com/ios/ios-18-preview/&quot;&gt;iOS 18 Preview&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/images/iOS_18/home.jpeg&quot; alt=&quot;iOS 18 Preview&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;release-note&quot;&gt;Release Note&lt;/h1&gt;
+&lt;h2 id=&quot;ios-18-release-note&quot;&gt;&lt;a href=&quot;https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-release-notes&quot;&gt;iOS 18 Release Note&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h2 id=&quot;xcode-16-release-note&quot;&gt;&lt;a href=&quot;https://developer.apple.com/documentation/xcode-release-notes/xcode-16-release-notes&quot;&gt;Xcode 16 Release Note&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/images/iOS_18/xcode_release_note.PNG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;all-technologies-updates&quot;&gt;&lt;a href=&quot;https://developer.apple.com/documentation/updates&quot;&gt;All Technologies Updates&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;whats-new-in-uikit&quot;&gt;&lt;a href=&quot;https://developer.apple.com/videos/play/wwdc2024/10118/&quot;&gt;What’s new in UIKit&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/documentation/Updates/UIKit#General&quot;&gt;General&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;automatic-trait-tracking&quot;&gt;&lt;a href=&quot;https://developer.apple.com/documentation/uikit/app_and_environment/automatic_trait_tracking&quot;&gt;Automatic trait tracking&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Leverage automatic trait usage tracking inside key update methods such as layoutSubviews(), eliminating the need for manual trait change registration and invalidation.&lt;/p&gt;
+
+&lt;p align=&quot;left&quot;&gt;    
+&lt;img src=&quot;../assets/images/iOS_18/trait_new.PNG&quot; width=&quot;330&quot; /&gt;
+&lt;img src=&quot;../assets/images/iOS_18/trait_old.PNG&quot; width=&quot;330&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&quot;list-improvements&quot;&gt;List improvements&lt;/h2&gt;
+&lt;p&gt;Take advantage of enhancements to &lt;code&gt;UIListContentConfiguration&lt;/code&gt;, which now automatically updates to match the style of the containing list by using the new &lt;code&gt;UIListEnvironment&lt;/code&gt; trait from the trait collection, removing the need to instantiate a configuration for a specific list style yourself.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func configurations(for location: FileLocation) -&amp;gt;
+    (UIListContentConfiguration, UIBackgroundConfiguration) {
+
+    var contentConfiguration = UIListContentConfiguration.cell()
+    let backgroundConfiguration = UIBackgroundConfiguration.listCell()
+
+    contentConfiguration.text = location.title
+    contentConfiguration.image = location.thumbnailImage
+
+    return (contentConfiguration, backgroundConfiguration)
+ }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p align=&quot;left&quot;&gt;    
+&lt;img src=&quot;../assets/images/iOS_18/list_improvements_old.PNG&quot; width=&quot;330&quot; /&gt;
+&lt;img src=&quot;../assets/images/iOS_18/list_improvements_new.PNG&quot; width=&quot;330&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p align=&quot;left&quot;&gt;    
+&lt;img src=&quot;../assets/images/iOS_18/list_improvements_api.png&quot; width=&quot;300&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&quot;uicalendarselectionweekofyear&quot;&gt;&lt;a href=&quot;https://developer.apple.com/documentation/uikit/uicalendarselectionweekofyear&quot;&gt;UICalendarSelectionWeekOfYear&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Select a specific week of the year in &lt;code&gt;UICalendarView&lt;/code&gt; using the new &lt;code&gt;UICalendarSelectionWeekOfYear&lt;/code&gt; selection option.&lt;/p&gt;
+
+&lt;p&gt;    
+&lt;img src=&quot;../assets/images/iOS_18/calendarview_demo_view.png&quot; width=&quot;120&quot; align=&quot;right&quot; /&gt;
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Set the selection behavior.
+let selection = UICalendarSelectionWeekOfYear(delegate: self)
+calendarView.selectionBehavior = selection
+
+// Set the 11th week in the year 2024.
+selection.selectedWeekOfYear = DateComponents(
+    calendar: Calendar(identifier: .gregorian),
+    weekOfYear: 11,
+    yearForWeekOfYear: 2024)
+    
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;symbol-animations&quot;&gt;&lt;a href=&quot;https://developer.apple.com/sf-symbols/&quot;&gt;Symbol animations&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Add repeat, wiggle, breathe, and rotate effects to &lt;a href=&quot;https://developer.apple.com/sf-symbols/&quot;&gt;SF Symbols&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;VStack{
+        Spacer()
+        Image(systemName: &quot;arrow.down.circle.fill&quot;)
+            .resizable()
+            .frame(width: 100, height: 100)
+            .symbolEffect(.wiggle)
+            .symbolRenderingMode(.hierarchical)
+                .foregroundColor(.purple)
+        Spacer()
+        Image(systemName: &quot;figure.skiing.crosscountry.circle.fill&quot;)
+            .resizable()
+            .frame(width: 100, height: 100)
+            .symbolEffect(.breathe)
+            .symbolRenderingMode(.hierarchical)
+                .foregroundColor(.indigo)
+        
+        Spacer()
+        Image(systemName: &quot;figure.skiing.crosscountry.circle.fill&quot;)
+            .resizable()
+            .frame(width: 100, height: 100)
+            .symbolEffect(.rotate)
+            .symbolRenderingMode(.monochrome)
+            .foregroundColor(.indigo)
+        Spacer()
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p align=&quot;center&quot;&gt;    
+&lt;img src=&quot;../assets/images/iOS_18/vedio/symbol.gif&quot; width=&quot;500&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;navigation&quot;&gt;&lt;a href=&quot;https://developer.apple.com/documentation/Updates/UIKit#Navigation&quot;&gt;Navigation&lt;/a&gt;&lt;/h1&gt;
+
+&lt;h2 id=&quot;evolve-your-document-launch-experience&quot;&gt;&lt;a href=&quot;https://developer.apple.com/videos/play/wwdc2024/10132/&quot;&gt;Evolve your document launch experience&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Showcase your app and its unique identity with a new, customizable launch design for document-based apps. In UIKit, define &lt;code&gt;launchOptions&lt;/code&gt; on your &lt;code&gt;UIDocumentViewController&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;SwiftUl
+    &lt;ul&gt;
+      &lt;li&gt;Recompile with the iOS 18 SDK&lt;/li&gt;
+      &lt;li&gt;Add a DocumentGroupLaunchScene&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;UlKit
+    &lt;ul&gt;
+      &lt;li&gt;Make UIDocumentViewController the root&lt;/li&gt;
+      &lt;li&gt;Apply customizations to the launchOptions&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;    
+&lt;img src=&quot;../assets/images/iOS_18/launch_doc_demo.png&quot; width=&quot;150&quot; align=&quot;right&quot; /&gt;
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; // Customize launch options.
+    launchOptions.title = &quot;My Text Editor&quot;
+    launchOptions.background.backgroundColor = .darkGray
+    
+    // Provide an action for the secondary action.
+    let templateAction = LaunchOptions.createDocumentAction(withIntent: .template)
+    templateAction.title = &quot;Choose a Template&quot;
+    launchOptions.secondaryAction = templateAction
+    // Update the background
+    launchOptions.background.image = UIImage(named: &quot;icon&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;uitab-and-tabsidebar&quot;&gt;UITab and TabSidebar&lt;/h2&gt;
+&lt;p&gt;Make your app’s navigation more immersive by adopting the new tab bar on iPad. If your app presents a rich hierarchy of tab items, set the &lt;code&gt;mode&lt;/code&gt; to &lt;code&gt;UITabBarController.Mode.tabSidebar&lt;/code&gt; to automatically switch between the tab bar and sidebar representations. In SwiftUI, use &lt;code&gt;sidebarAdaptable&lt;/code&gt;.
+&lt;img src=&quot;../assets/images/iOS_18/tab_api_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;UITabBarController adds a new label type UITab, which can set title, subtitle, image, badgeValue, etc.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;UITabBarControllerDelegate adds multiple UITab-related delegate methods.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/images/iOS_18/tab_api_2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Demo&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    tabBarController.mode = .tabSidebar
+    // Assign an array of tabs.
+    tabBarController.tabs = [
+       UITab(title: &quot;First&quot;,
+             image: UIImage(systemName: &quot;1.circle&quot;),
+             identifier: &quot;First Tab&quot;) { _ in
+                 // Return the view controller that the tab displays.
+                 firstHostingController
+             },
+       UITab(title: &quot;Second&quot;,
+             image: UIImage(systemName: &quot;2.circle&quot;),
+             identifier: &quot;Second Tab&quot;) { _ in
+                 // Return the view controller that the tab displays.
+                 secondHostingController
+             },
+       UITab(title: &quot;Three&quot;,
+             image: UIImage(systemName: &quot;3.circle&quot;),
+             identifier: &quot;Three Tab&quot;) { _ in
+                 // Return the view controller that the tab displays.
+                 DocumentViewController()
+             },
+       
+    ]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;iPhone and iPad demo&lt;/p&gt;
+&lt;p align=&quot;left&quot;&gt; 
+&lt;img src=&quot;../assets/images/iOS_18/tab_demo_1.png&quot; width=&quot;300&quot; alt=&quot;iPhone&quot; align=&quot;center&quot; /&gt;
+&lt;img src=&quot;../assets/images/iOS_18/vedio/UItab.gif&quot; width=&quot;300&quot; alt=&quot;iPad&quot; align=&quot;center&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&quot;preferredtransition&quot;&gt;&lt;a href=&quot;https://developer.apple.com/documentation/uikit/uiviewcontroller/4448100-preferredtransition&quot;&gt;PreferredTransition&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Transition between views in a way that feels fluid and consistent using a systemwide zoom transition. In UIKit, configure your view controller’s &lt;code&gt;preferredTransition&lt;/code&gt; to &lt;code&gt;zoom(options:sourceViewProvider:)&lt;/code&gt;. In SwiftUI, use &lt;code&gt;zoom(sourceID:in:)&lt;/code&gt;.&lt;/p&gt;
+&lt;p align=&quot;left&quot;&gt;    
+&lt;img src=&quot;../assets/images/iOS_18/prefer_transition_left.png&quot; width=&quot;320&quot; /&gt;
+&lt;img src=&quot;../assets/images/iOS_18/prefer_transition_right.png&quot; width=&quot;320&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h1 id=&quot;framework-interoperability&quot;&gt;&lt;a href=&quot;https://developer.apple.com/documentation/Updates/UIKit#Framework-interoperability&quot;&gt;Framework interoperability&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;ulkit-and-swiftul-interoperability&quot;&gt;UlKit and SwiftUl interoperability&lt;/h2&gt;
+&lt;p&gt;Use SwiftUI animations from AppKit and UIKit to create a consistent animation experience across apps that use multiple UI frameworks. In UIKit, use &lt;code&gt;animate(with:changes:completion:)&lt;/code&gt;. In AppKit, use &lt;code&gt;animate(with:changes:completion:)&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Animations&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/images/iOS_18/uikit_swiftUI_old.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Animate changes to one or more views using the specified SwiftUI animation. Animations performed using this method can be smoothly retargeted while preserving velocity, just like animations in SwiftUI views.
+Task {
+    // Begins an animation to move the view to a new location.
+    UIView.animate(with: .spring(duration: 1.0)) {
+        myView.center = CGPoint(x: 200, y: 200)
+    }
+    try await Task.sleep(for: .seconds(0.5))
+    
+    // Retargets the running animations to move the view to a different location.
+    UIView.animate(with: .spring) {
+        myView.center = CGPoint(x: 100, y: 400)
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;UIKit and UISwift Animations&lt;/p&gt;
+&lt;p align=&quot;left&quot;&gt; 
+&lt;img src=&quot;../assets/images/iOS_18/vedio/swiftUI_animation_1.gif&quot; width=&quot;300&quot; alt=&quot;iPhone&quot; align=&quot;center&quot; /&gt;
+&lt;img src=&quot;../assets/images/iOS_18/vedio/swiftUI_animation_2.gif&quot; width=&quot;300&quot; alt=&quot;iPad&quot; align=&quot;center&quot; /&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Gesture recognizers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;switch gesture.state {
+case .changed:
+    UIView.animate(.interactiveSpring) {
+        bead.center = gesture.translation
+    }
+
+case .ended:
+    UIView.animate(.spring) {
+        bead.center = endOfBracelet
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;update-link&quot;&gt;&lt;a href=&quot;https://developer.apple.com/documentation/uikit/uiupdatelink&quot;&gt;Update link&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;With a UI update link, you can follow the progress of each UI update and express preferences about how those updates happen. Use a UI update link when you need precise and predictable control over the UI update process.
+&lt;code&gt;UIUpdateLink&lt;/code&gt; similar to &lt;code&gt;CADisplayLink&lt;/code&gt;
+More features&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;View tracking&lt;/li&gt;
+  &lt;li&gt;Low latency applications&lt;/li&gt;
+  &lt;li&gt;Better performance&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;    
+&lt;img src=&quot;../assets/images/iOS_18/vedio/UIUpdateLink.gif&quot; width=&quot;400&quot; align=&quot;right&quot; /&gt;
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let updateLink = UIUpdateLink(
+    view: view,
+    actionTarget: self,
+    selector: #selector(update)
+)
+updateLink.requiresContinuousUpdates = true
+updateLink.isEnabled = true
+
+@objc func update(updateLink: UIUpdateLink,
+                  updateInfo: UIUpdateInfo) {
+    view.center.y = sin(updateInfo.modelTime)
+        * 100 + view.bounds.midY
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;sensory-feedback&quot;&gt;&lt;a href=&quot;https://developer.apple.com/documentation/uikit/uicanvasfeedbackgenerator?language=objc%2F&quot;&gt;Sensory feedback&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Use canvas feedback to indicate when a drawing event occurs, such as an object snapping to a guide or ruler. When using Apple Pencil Pro with a compatible iPad, this type of feedback can provide a tactile response.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/images/iOS_18/sensory_feedback.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;text-improvements&quot;&gt;Text improvements&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/videos/play/wwdc2024/10118/?time=7&quot;&gt;Using new attributes for highlight&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;    
+&lt;img src=&quot;../assets/images/iOS_18/text_improvements.png&quot; width=&quot;100&quot; align=&quot;right&quot; /&gt;
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var attributes = [NSAttributedString.Key: Any]()
+    // Highlight style
+    attributes[.textHighlightStyle] =
+    NSAttributedString.TextHighlightStyle.default
+    // Highlight color scheme
+    attributes[.textHighlightColorScheme] =
+    NSAttributedString.TextHighlightColorScheme.purple
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/images/iOS_18/text_improvements_api.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;whats-new-in-location-authorization&quot;&gt;&lt;a href=&quot;https://developer.apple.com/cn/videos/play/wwdc2024/10212/?time=112&quot;&gt;What’s new in location authorization&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Location Authorization 2.0. Learn new recommendations and tips for getting the authorization you need, and new diagnostics that notify you when you’re not meeting authorization goals.&lt;/p&gt;
+
+&lt;p&gt;    
+&lt;img src=&quot;../assets/images/iOS_18/local_api.png&quot; width=&quot;240&quot; align=&quot;right&quot; /&gt;
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Iterating liveUpdates to reflect current location
+Task {
+    let updates = CLLocationUpdate.liveUpdates()
+    for try await update in updates {
+        if let loc = update.location {
+            updateLocationUI(location: loc)
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Demo:
+&lt;img src=&quot;../assets/images/iOS_18/vedio/ScreenRecording_06-19-2024_18-47-40_1.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;!-- ![](../assets/images/iOS_18/file/AdoptingLiveUpdatesInCoreLocation.zip) --&gt;
+
+&lt;h2 id=&quot;accessorysetupkit&quot;&gt;&lt;a href=&quot;https://developer.apple.com/videos/play/wwdc2024/10203/&quot;&gt;AccessorySetupKit&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Elevate your accessory setup experience with AccessorySetupKit. Display a beautiful pairing dialog with an image of your Bluetooth or Wi-Fi accessory — no trip to the Settings app required. Discover how to improve privacy by pairing only your app with an accessory. And learn how you can migrate existing accessories so they can be managed by AccessorySetupKit.&lt;/p&gt;
+
+&lt;p&gt;Demo
+&lt;img src=&quot;../assets/images/iOS_18/vedio/ScreenRecording_06-19-2024_18-32-46_1.gif&quot; alt=&quot;&quot; /&gt;
+&lt;!-- ![](../assets/images/iOS_18/file/AuthorizingABluetoothAccessoryToShareADiceRoll.zip) --&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;whats-new-in-swift&quot;&gt;What’s new in Swift&lt;a href=&quot;https://developer.apple.com/videos/play/wwdc2024/10136/&quot;&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.apple.com/documentation/updates/swift&quot;&gt;Swift updates&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.apple.com/videos/play/wwdc2024/10169/&quot;&gt;Migrate your app to Swift 6&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/cn/videos/play/wwdc2024/10170/&quot;&gt;Consume noncopyable types in swift&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/images/iOS_18/swift_new_plan.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;data-race-safety&quot;&gt;Data-race safety&lt;/h2&gt;
+&lt;p&gt;Swift 6 improves concurrency checking further, and the Swift team say it “removes many false-positive data-race warnings” that were present in 5.10. It also introduces several targeted changes that will do wonders to make concurrency easier to adopt&lt;/p&gt;
+
+&lt;p&gt;Swift 6 before and now display&lt;/p&gt;
+&lt;p align=&quot;left&quot;&gt; 
+&lt;img src=&quot;../assets/images/iOS_18/data_race_safe_old.png&quot; width=&quot;320&quot; /&gt;
+&lt;img src=&quot;../assets/images/iOS_18/data_race_safe_new.png&quot; width=&quot;320&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&quot;add-collection-operations-on-noncontiguous-elements&quot;&gt;Add Collection Operations on Noncontiguous Elements&lt;/h2&gt;
+&lt;p&gt;Operate on noncontiguous ranges in collections using &lt;code&gt;RangeSet&lt;/code&gt; and &lt;code&gt;DiscontiguousSlice&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;struct ExamResult {
+    var student: String
+    var score: Int
+}
+// We can get a RangeSet containing the indices of all students who score 85% or higher like this
+        let results = [
+            ExamResult(student: &quot;Eric Effiong&quot;, score: 95),
+            ExamResult(student: &quot;Maeve Wiley&quot;, score: 70),
+            ExamResult(student: &quot;Otis Milburn&quot;, score: 100)
+        ]
+// And if we wanted to get access to those students, we can use a new Collection subscript:
+        let topResults = results.indices { student in
+            student.score &amp;gt;= 85
+        }
+       
+        for result in results[topResults] {
+            print(&quot;\(result.student) scored \(result.score)%&quot;)
+        }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;access-level-modifiers-on-import-declarations&quot;&gt;Access-level modifiers on import declarations&lt;/h2&gt;
+&lt;p&gt;Adds the ability to mark import declarations with access control modifiers, such as &lt;strong&gt;private import SomeLibrary&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;upgrades-for-noncopyable-types&quot;&gt;Upgrades for noncopyable types&lt;/h2&gt;
+&lt;p&gt;In that code, the compiler enforces that &lt;code&gt;message.read()&lt;/code&gt; can only ever be called once, because it consumes the object.&lt;/p&gt;
+
+&lt;p&gt;    
+&lt;img src=&quot;../assets/images/iOS_18/noncopyable_image.png&quot; width=&quot;330&quot; align=&quot;right&quot; /&gt;
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;struct Message: ~Copyable {
+    var agent: String
+    private var message: String
+
+    init(agent: String, message: String) {
+        self.agent = agent
+        self.message = message
+    }
+    consuming func read() {
+        print(&quot;\(agent): \(message)&quot;)
+    }
+}
+ func createMessage() {
+        let message = Message(agent: &quot;Ethan Hunt&quot;, message: &quot;You need to abseil down a skyscraper for some reason.&quot;)
+        message.read()
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;typed-throws&quot;&gt;Typed throws&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;enum IntegerParseError: Error {
+  case nonDigitCharacter(String, index: String.Index)
+}
+
+func parse(string: String) throws -&amp;gt; Int {
+  for index in string.indices {
+    // ...
+    throw IntegerParseError.nonDigitCharacter(string, index: index)
+  }
+}
+
+do {
+  let value = try parse(string: &quot;1+234&quot;)
+}
+catch let error as IntegerParseError {
+  // ...
+}
+catch {
+   // error is 'any Error'
+}
+
+func parse(string: String) throws -&amp;gt; Int {
+  //...
+}
+func parse(string: String) -&amp;gt; Int {
+  //...
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Swift 6&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+func parse(string: String) throws(IntegerParseError) -&amp;gt; Int {
+  for index in string.indices {
+    // ...throw IntegerParseError.nonDigitCharacter(string, index: index)
+  }
+}
+
+do {
+  let value = try parse(string: &quot;1+234&quot;)
+}
+catch {
+   // error is 'IntegerParseError'
+}
+
+func parse(string: String) throws(any Error) -&amp;gt; Int {
+  //...
+}
+
+func parse(string: String) throws(Never) -&amp;gt; Int {
+  //...
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;meet-swift-testing&quot;&gt;&lt;a href=&quot;https://developer.apple.com/videos/play/wwdc2024/10179/&quot;&gt;Meet Swift Testing&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Introducing Swift Testing: a new package for testing your code using Swift. Explore the building blocks of its powerful new API, discover how it can be applied in common testing workflows, and learn how it relates to XCTest and open source Swift.&lt;/p&gt;
+
+&lt;p align=&quot;left&quot;&gt; 
+&lt;img src=&quot;../assets/images/iOS_18/swift_testing_1.png&quot; width=&quot;330&quot; /&gt;
+&lt;img src=&quot;../assets/images/iOS_18/swift_testing_2.png&quot; width=&quot;330&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p align=&quot;left&quot;&gt; 
+&lt;img src=&quot;../assets/images/iOS_18/swift_testing_3.png&quot; width=&quot;330&quot; /&gt;
+&lt;img src=&quot;../assets/images/iOS_18/swift_testing_4.png&quot; width=&quot;330&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h1 id=&quot;swift-charts&quot;&gt;Swift Charts&lt;/h1&gt;
+&lt;p&gt;The plot thickens! Learn how to render beautiful charts representing math functions and extensive datasets using function and vectorized plots in your app. Whether you’re looking to display functions common in aerodynamics, magnetism, and higher order field theory, or create large interactive heat maps, Swift Charts has you covered.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added new plot API variants at iOS 18&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/images/iOS_18/swift_chart_image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Charts demo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/images/iOS_18/swift_chart_demo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Source Demos&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;    
+&lt;img src=&quot;../assets/images/iOS_18/swift_chart_source_demo_1.png&quot; width=&quot;180&quot; align=&quot;right&quot; /&gt;
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  Chart {
+        LinePlot(x: &quot;x&quot;, y: &quot;y&quot;, t: &quot;t&quot;, domain: -.pi ... .pi) {
+                t in
+                let x = sqrt(2) * pow(sin(t), 3)
+                let y = cos(t) * (2 - cos(t) - pow(cos(t), 2))
+                return (x, y)
+           }
+            .foregroundStyle(.red)
+            .opacity(0.8)
+        }
+        .chartXScale(domain: -3 ... 3)
+        .chartYScale(domain: -4 ... 2)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;    
+&lt;img src=&quot;../assets/images/iOS_18/swift_chart_source_demo_2.png&quot; width=&quot;150&quot; align=&quot;right&quot; /&gt;
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; Chart {
+   AreaPlot(x: &quot;x&quot;, yStart: &quot;cos(x)&quot;, yEnd: &quot;sin(x)&quot;) { x in
+           (yStart: cos(x / 180 * .pi),
+            yEnd: sin(x / 180 * .pi))
+        }
+            .foregroundStyle(.orange)
+            .opacity(0.8)
+    }
+    .chartXScale(domain: -315 ... 315)
+    .chartYScale(domain: -5 ... 5)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;whats-new-in-swiftdata&quot;&gt;&lt;a href=&quot;https://developer.apple.com/videos/play/wwdc2024/10137/&quot;&gt;What’s new in SwiftData&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/videos/play/wwdc2024/10138&quot;&gt;Create a custom data store with SwiftData&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/videos/play/wwdc2024/10075&quot;&gt;Track model changes with SwiftData history&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Combining Core Data’s proven persistence technology and Swift’s modern concurrency features, SwiftData enables you to add persistence to your app quickly, with minimal code and no external dependencies. Using modern language features like macros, SwiftData enables you to write code that is fast, efficient, and safe, enabling you to describe the entire model layer (or object graph) for your app. The framework handles storing the underlying model data, and optionally, syncing that data across multiple devices.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/images/iOS_18/swift_data_api.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;whats-new-in-swiftui&quot;&gt;&lt;a href=&quot;https://developer.apple.com/videos/play/wwdc2024/10144/&quot;&gt;What’s new in SwiftUI&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.apple.com/videos/play/wwdc2024/10150/?time=786&quot;&gt;SwiftUI essentials&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.apple.com/documentation/Updates/SwiftUI&quot;&gt;SwiftUI updates&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;whats-new-in-xcode-16&quot;&gt;What’s new in Xcode 16&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Support breakpoint resumption when downloading various Components.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p align=&quot;left&quot;&gt; 
+&lt;img src=&quot;../assets/images/iOS_18/xcode_16_1.png&quot; width=&quot;320&quot; /&gt;
+&lt;img src=&quot;../assets/images/iOS_18/xcode_16_2.png&quot; width=&quot;320&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Added Other Components of Predictive Code Completion Model, which is mainly used for code prediction function&lt;/strong&gt;
+&lt;img src=&quot;../assets/images/iOS_18/xcode_16_3.png&quot; alt=&quot;&quot; /&gt;
+&lt;strong&gt;Added Swift Testing&lt;/strong&gt;&lt;/p&gt;
+&lt;p align=&quot;left&quot;&gt; 
+&lt;img src=&quot;../assets/images/iOS_18/xcode_16_4.png&quot; width=&quot;320&quot; /&gt;
+&lt;img src=&quot;../assets/images/iOS_18/xcode_16_5.png&quot; width=&quot;320&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Project navigator New File/Template menu&lt;/strong&gt;
+&lt;code&gt;New File &lt;/code&gt;–&amp;gt; &lt;code&gt;New Empty File&lt;/code&gt; : The original functions are retained
+&lt;code&gt;New File from Template...&lt;/code&gt;: Swift source files can be created quickly&lt;/p&gt;
+&lt;p align=&quot;left&quot;&gt; 
+&lt;img src=&quot;../assets/images/iOS_18/xcode_16_6.png&quot; width=&quot;320&quot; /&gt;
+&lt;img src=&quot;../assets/images/iOS_18/xcode_16_7.png&quot; width=&quot;320&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Asset management&lt;/strong&gt;
+&lt;img src=&quot;../assets/images/iOS_18/xcode_16_8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;left&quot;&gt; 
+&lt;img src=&quot;../assets/images/iOS_18/xcode_16_9.png&quot; width=&quot;320&quot; /&gt;
+&lt;img src=&quot;../assets/images/iOS_18/vedio/xcode_icon.gif&quot; width=&quot;320&quot; /&gt;
+&lt;/p&gt;
+</description>
+        <pubDate>Thu, 20 Jun 2024 00:00:00 +0800</pubDate>
+        <link>/iOS_18_Investigation/</link>
+        <guid isPermaLink="true">/iOS_18_Investigation/</guid>
+        
+        <category>Study</category>
+        
+        
+        <category>Technology</category>
+        
+      </item>
     
       <item>
         <title>SwiftUI 学习笔记</title>
@@ -108,6 +679,22 @@
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;button&quot;&gt;Button&lt;/h4&gt;
+&lt;p&gt;Button 用于响应点击事件。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Button&quot;&gt;struct ButtonPage: View {
+    var body: some View {
+        Button {
+            print(&quot;Tap&quot;)
+        } label: {
+            Text(&quot;I'm a Button&quot;)
+                .foregroundColor(.white)
+                .padding()
+                .background(Color.blue)
+                .cornerRadius(10)
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
 </description>
         <pubDate>Mon, 20 May 2024 00:00:00 +0800</pubDate>
         <link>/SwiftUI-Study/</link>
@@ -163,224 +750,6 @@
         
         
         <category>Technology</category>
-        
-      </item>
-    
-      <item>
-        <title>Les Ambassadeurs, the first Restaurant we Visited in Paris</title>
-        <description>&lt;p&gt;Within the Hôtel de Crillon, which was built in 1758, Les Ambassadeurs operated as a restaurant since the mid-19th century. It reached its peak of fame as a restaurant and nightclub (a café-concert) in the last three decades of the 19th century.&lt;/p&gt;
-
-&lt;p&gt;Always a center of entertainment for the aristocracy, in the 1870s it also became a regular destination of some of the best known figures of art and the demi-monde. Edgar Degas and Henri de Toulouse-Lautrec portrayed visitors at the night club, and Aristide Bruant performed there.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;It was decorated in an 18th-century rococo style, redesigned by Sybille de Margérie with furnishings by Sonia Rykiel.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Following a renovation of the hotel in 1981–85, the restaurant occupied a former private ballroom with windows looking out on the Place de la Concorde, a few hundred meters from the Palais Garnier.&lt;/p&gt;
-
-&lt;p&gt;Les Ambassadeurs had two Michelin stars. In the last decade of its operation, chef was Dominique Bouchet  followed by Jean-François Piège and finally when the hotel closed in 2013 for an extended renovation, Christopher Hache.&lt;/p&gt;
-
-&lt;p&gt;In 2017 Hache opened a smaller restaurant, L’Écrin, within the renovated hotel; the former space of Les Ambassadeurs became a bar.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 02 Feb 2024 00:00:00 +0800</pubDate>
-        <link>/les-ambassadeurs/</link>
-        <guid isPermaLink="true">/les-ambassadeurs/</guid>
-        
-        <category>France</category>
-        
-        
-        <category>Lifestyle</category>
-        
-      </item>
-    
-      <item>
-        <title>Much more than a desert: A trip into the Sahara</title>
-        <description>&lt;p&gt;The Sahara is a desert located on the African continent. It is the largest hot desert in the world, and the third largest desert overall after Antarctica and the Arctic. Its area of 9,200,000 square kilometres (3,600,000 sq mi) is comparable to the area of China or the United States.[3] The name ‘Sahara’ is derived from a dialectal Arabic word for “desert”, ṣaḥra (صحرا /ˈsˤaħra/).&lt;/p&gt;
-
-&lt;p&gt;The desert comprises much of North Africa, excluding the fertile region on the Mediterranean Sea coast, the Atlas Mountains of the Maghreb, and the Nile Valley in Egypt and Sudan. It stretches from the Red Sea in the east and the Mediterranean in the north to the Atlantic Ocean in the west, where the landscape gradually changes from desert to coastal plains.&lt;/p&gt;
-
-&lt;p&gt;To the south, it is bounded by the Sahel, a belt of &lt;strong&gt;semi-arid tropical savanna&lt;/strong&gt; around the Niger River valley and the Sudan Region of Sub-Saharan Africa. The Sahara can be divided into several regions including: the western Sahara, the central Ahaggar Mountains, the Tibesti Mountains, the Aïr Mountains, the Ténéré desert, and the Libyan Desert.&lt;/p&gt;
-
-&lt;p&gt;For several hundred thousand years, the Sahara has alternated between desert and savanna grassland in a 20,000 year cycle caused by the precession of the Earth’s axis as it rotates around the Sun, which changes the location of the North African Monsoon. The area is next expected to become green in about 15,000 years (17,000 AD).&lt;/p&gt;
-</description>
-        <pubDate>Sat, 01 Feb 2020 00:00:00 +0800</pubDate>
-        <link>/much-more-than-a-desert-trip-to-sahara/</link>
-        <guid isPermaLink="true">/much-more-than-a-desert-trip-to-sahara/</guid>
-        
-        
-        <category>Travel</category>
-        
-      </item>
-    
-      <item>
-        <title>One day we just started our adventure</title>
-        <description>&lt;p&gt;The die cut has also been employed in the non-juvenile sphere as well, a recent example being Jonathan Safran Foer’s ambitious Tree of Codes.&lt;/p&gt;
-
-&lt;p&gt;As for this particular rendition of Charles Perrault’s classic tale, the text and design is by Lydia Very (1823-1901), sister of Transcendentalist poet Jones Very. The gruesome ending of the original - which sees Little Red Riding Hood being gobbled up as well as her grandmother - is avoided here, the gore giving way to the less bloody aims of the morality tale, and the lesson that one should not disobey one’s mother.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;It would seem the claim could also extend to die cut books in general, as we can’t find anything sooner, but do let us know in the comments if you have further light to shed on this! Such books are, of course, still popular in children’s publishing today, though the die cutting is not now limited to mere outlines, as evidenced in a beautiful 2014 version of the same Little Red Riding Hood story.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The first mass-produced book to deviate from a rectilinear format, at least in the United States, is thought to be this 1863 edition of Red Riding Hood, cut into the shape of the protagonist herself with the troublesome wolf curled at her feet.&lt;/p&gt;
-
-&lt;p&gt;Produced by the Boston-based publisher Louis Prang, this is the first in their “Doll Series”, a set of five “die-cut” books, known also as shape books — the other titles being Robinson Crusoe, Goody Two-Shoes (also written by Red Riding Hood author Lydia Very), Cinderella, and King Winter.&lt;/p&gt;
-
-&lt;p&gt;An 1868 Prang catalogue would later claim that such “books in the shape of a regular paper Doll… originated with us”.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 12 Jan 2020 00:00:00 +0800</pubDate>
-        <link>/one-day-just-started-adventure/</link>
-        <guid isPermaLink="true">/one-day-just-started-adventure/</guid>
-        
-        
-        <category>Travel</category>
-        
-      </item>
-    
-      <item>
-        <title>London is that kind of place you must visit in this lifetime</title>
-        <description>&lt;p&gt;The Queen’s Guard and Queen’s Life Guard (called King’s Guard and King’s Life Guard when the reigning monarch is male) are the names given to contingents of infantry and cavalry soldiers charged with guarding the official royal residences in the United Kingdom. The British Army has regiments of both Horse Guards and Foot Guards predating the English Restoration (1660), and since the reign of King Charles II these regiments have been responsible for guarding the Sovereign’s palaces. The Guards are fully operational soldiers.&lt;/p&gt;
-
-&lt;p&gt;The Queen’s Guard and Queen’s Life Guard are mounted at the royal residences that come under the operating area of the British Army’s London District, which is responsible for the administration of the Household Division. This covers Buckingham Palace, St James’s Palace and the Tower of London, as well as Windsor Castle. The Queen’s Guard is also mounted at the sovereign’s other official residence, the Palace of Holyroodhouse, but not as often as in London. In Edinburgh, the guard is the responsibility of the resident infantry battalion at Redford Barracks. It is not mounted at the Queen’s private residences at Sandringham or Balmoral.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;The Queen’s Guard is the name given to the contingent of infantry responsible for guarding Buckingham Palace and St James’s Palace (including Clarence House) in London. The guard is made up of a company of soldiers from a single regiment, which is split in two, providing a detachment for Buckingham Palace and a detachment for St James’s Palace. Because the Sovereign’s official residence is still St James’s, the guard commander (called the captain of the guard) is based there, as are the regiment’s colours.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;When the Sovereign is in residence, the Queen’s Guard numbers three officers and forty other ranks, with four sentries each posted at Buckingham Palace (on the forecourt) and St James’s Palace (two in Friary Court, two at the entrance to Clarence House).&lt;/p&gt;
-
-&lt;p&gt;This reduces to three officers and 31 ORs, with two sentries each, when the Sovereign is not in residence. The Queen’s Guard is not purely ceremonial in nature. They provide sentries during the day and night, and during the later hours, they patrol the grounds of the Palace.&lt;/p&gt;
-
-&lt;p&gt;Until 1959, the sentries at Buckingham Palace were stationed outside the fence. This stopped following an incident involving a female tourist and a Coldstream Guardsman – due to the continued pestering by tourists and sightseers, the guardsman kicked the tourist on the ankle as he marched. The tourist made a complaint to the police and the sentry was confined to barracks for ten days. Not long after, the sentries were moved inside the fence.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 12 Jan 2020 00:00:00 +0800</pubDate>
-        <link>/london/</link>
-        <guid isPermaLink="true">/london/</guid>
-        
-        
-        <category>Travel</category>
-        
-      </item>
-    
-      <item>
-        <title>Memoirs supports external images as featured</title>
-        <description>&lt;p&gt;Adding images is a very annoying task, I know that, but “Memoirs” theme has external featured images integrated so your publishing task becomes easier now.&lt;/p&gt;
-
-&lt;p&gt;Education must also train one for quick, resolute and effective thinking. To think incisively and to think for one’s self is very difficult.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;We are prone to let our mental life become invaded by legions of half truths, prejudices, and propaganda. At this point, I often wonder whether or not education is fulfilling its purpose. A great majority of the so-called educated people do not think logically and scientifically.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Even the press, the classroom, the platform, and the pulpit in many instances do not give us objective and unbiased truths. To save man from the morass of propaganda, in my opinion, is one of the chief aims of education. Education must enable one to sift and weigh evidence, to discern the true from the false, the real from the unreal, and the facts from the fiction.&lt;/p&gt;
-
-&lt;p&gt;The function of education, therefore, is to teach one to think intensively and to think critically. But education which stops with efficiency may prove the greatest menace to society. The most dangerous criminal may be the man gifted with reason, but with no morals.&lt;/p&gt;
-
-&lt;p&gt;The late Eugene Talmadge, in my opinion, possessed one of the better minds of Georgia, or even America. Moreover, he wore the Phi Beta Kappa key. By all measuring rods, Mr. Talmadge could think critically and intensively; yet he contends that I am an inferior being. Are those the types of men we call educated?&lt;/p&gt;
-
-&lt;p&gt;We must remember that intelligence is not enough. Intelligence plus character–that is the goal of true education. The complete education gives one not only power of concentration, but worthy objectives upon which to concentrate. The broad education will, therefore, transmit to one not only the accumulated knowledge of the race but also the accumulated experience of social living.&lt;/p&gt;
-
-</description>
-        <pubDate>Sun, 12 Jan 2020 00:00:00 +0800</pubDate>
-        <link>/external-featured-image/</link>
-        <guid isPermaLink="true">/external-featured-image/</guid>
-        
-        <category>France</category>
-        
-        
-        <category>Lifestyle</category>
-        
-        <category>Travel</category>
-        
-      </item>
-    
-      <item>
-        <title>Spoliers Inside - a film review needs hidden spoilers like this post</title>
-        <description>&lt;p&gt;Director Roland Suso Richter’s enigmatic psychological thriller (direct to video/DVD) was based upon screenwriter Michael Cooney’s own play “Point of Death” - a title that gave away the film’s entire plot twist premise.&lt;/p&gt;
-
-&lt;p&gt;As in many similar films, such as Jacob’s Ladder (1990), Soul Survivors (2001), and The Butterfly Effect (2004), events and people were thoroughly distorted and confused because the protagonist was at the point of death. The tagline was misleading:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;“When You Don’t Have a Memory, How Can You Remember Who to Trust?”&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The mind-warping film opened with a hospital patient Simon Cable (Ryan Phillippe) awakening in a &lt;span class=&quot;spoiler&quot;&gt; hospital with little knowledge (amnesia perhaps?) of what had happened, and why he was there, etc. He was told by attending Dr. Jeremy Newman (Stephen Rea) that it was July 29, 2002 (Simon thought it was the year 2000 - he was confused - he heard a doctor say 20:00 hours!) and that he had died for two minutes from cardiac arrest following the near-fatal accident – but he had been revived (“You’re as good as new”).&lt;/span&gt; Dr. Newman: “Simon, this is the 29th of July. The year is 2002. And your wife, whose name is Anna, is waiting outside.”&lt;/p&gt;
-
-&lt;h4 id=&quot;what-critiques-say&quot;&gt;What critiques say?&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“There’s almost no single moment in Portrait of a Lady on Fire that couldn’t be captured, mounted, and hung on a wall as high art.” &lt;cite&gt;— Entertainment Weekly&lt;/cite&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;A major clue to everything that truly happened was the scene that played next under the credits - hospital staff failed to bring a patient back to life with a defibrillator after a car accident. Chest compressions failed and there was no pulse. A second major clue was provided by hospital orderly Travis (Stephen Graham): Everybody dies. No mystery there. But why and how everyone dies. Now, there’s a mystery worth solving. Probably the biggest mystery there is.&lt;/p&gt;
-
-&lt;h4 id=&quot;so-how-do-we-add-spoilers-in-this-theme&quot;&gt;So how do we add spoilers in this theme?&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;span class=&quot;spoiler&quot;&amp;gt;My hidden paragraph here.&amp;lt;/span&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-        <pubDate>Sat, 11 Jan 2020 00:00:00 +0800</pubDate>
-        <link>/post-with-spoiler/</link>
-        <guid isPermaLink="true">/post-with-spoiler/</guid>
-        
-        <category>Movies</category>
-        
-        
-        <category>Lifestyle</category>
-        
-      </item>
-    
-      <item>
-        <title>That day when we almost missed our flight</title>
-        <description>&lt;p&gt;The first mass-produced book to deviate from a rectilinear format, at least in the United States, is thought to be this 1863 edition of Red Riding Hood, cut into the shape of the protagonist herself with the troublesome wolf curled at her feet. Produced by the Boston-based publisher Louis Prang, this is the first in their “Doll Series”, a set of five “die-cut” books, known also as shape books — the other titles being Robinson Crusoe, Goody Two-Shoes (also written by Red Riding Hood author Lydia Very), Cinderella, and King Winter.&lt;/p&gt;
-
-&lt;p&gt;An 1868 Prang catalogue would later claim that such “books in the shape of a regular paper Doll… originated with us”.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;It would seem the claim could also extend to die cut books in general, as we can’t find anything sooner, but do let us know in the comments if you have further light to shed on this! Such books are, of course, still popular in children’s publishing today, though the die cutting is not now limited to mere outlines, as evidenced in a beautiful 2014 version of the same Little Red Riding Hood story.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The die cut has also been employed in the non-juvenile sphere as well, a recent example being Jonathan Safran Foer’s ambitious Tree of Codes.&lt;/p&gt;
-
-&lt;p&gt;As for this particular rendition of Charles Perrault’s classic tale, the text and design is by Lydia Very (1823-1901), sister of Transcendentalist poet Jones Very. The gruesome ending of the original - which sees Little Red Riding Hood being gobbled up as well as her grandmother - is avoided here, the gore giving way to the less bloody aims of the morality tale, and the lesson that one should not disobey one’s mother.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 01 Jan 2020 00:00:00 +0800</pubDate>
-        <link>/that-day-we-almost-missed-flight/</link>
-        <guid isPermaLink="true">/that-day-we-almost-missed-flight/</guid>
-        
-        
-        <category>Travel</category>
-        
-        <category>Lifestyle</category>
-        
-      </item>
-    
-      <item>
-        <title>Reviewing the best Oscar movies of all time</title>
-        <description>&lt;p&gt;Review products, books, movies, restaurant and anything you like on your Jekyll blog with &lt;strong&gt;Memoirs&lt;/strong&gt;! JSON-LD ready for review property.&lt;/p&gt;
-
-&lt;h4 id=&quot;how-to-use&quot;&gt;How to use?&lt;/h4&gt;
-
-&lt;p&gt;It’s actually really simple! Add the rating in your YAML front matter. It also supports halfs:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-md&quot;&gt;---
-layout: post
-title:  &quot;Inception Movie&quot;
-author: john
-categories: [ Lifestyle ]
-tags: [red, yellow]
-image: assets/images/11.jpg
-description: &quot;My review of Inception movie. Actors, directing and more.&quot;
-rating: 4.5
----
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-        <pubDate>Wed, 01 Jan 2020 00:00:00 +0800</pubDate>
-        <link>/review-oscar/</link>
-        <guid isPermaLink="true">/review-oscar/</guid>
-        
-        <category>Movies</category>
-        
-        
-        <category>Lifestyle</category>
         
       </item>
     
