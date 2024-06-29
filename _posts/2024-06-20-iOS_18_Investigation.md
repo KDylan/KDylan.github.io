@@ -313,7 +313,8 @@ Task {
 }
 ```
 
-Demo:
+**[Download demo code](https://developer.apple.com/documentation/CoreLocation/adopting-live-updates-in-core-location)**
+
 ![](../assets/images/iOS_18/vedio/ScreenRecording_06-19-2024_18-47-40_1.gif)
 
 <!-- ![](../assets/images/iOS_18/file/AdoptingLiveUpdatesInCoreLocation.zip) -->
@@ -321,7 +322,8 @@ Demo:
 ## [AccessorySetupKit](https://developer.apple.com/videos/play/wwdc2024/10203/)
 Elevate your accessory setup experience with AccessorySetupKit. Display a beautiful pairing dialog with an image of your Bluetooth or Wi-Fi accessory — no trip to the Settings app required. Discover how to improve privacy by pairing only your app with an accessory. And learn how you can migrate existing accessories so they can be managed by AccessorySetupKit.
 
-Demo
+ **[Download demo code](https://developer.apple.com/documentation/AccessorySetupKit/authorizing-a-bluetooth-accessory-to-share-a-dice-roll)**
+
 ![](../assets/images/iOS_18/vedio/ScreenRecording_06-19-2024_18-32-46_1.gif)
 <!-- ![](../assets/images/iOS_18/file/AuthorizingABluetoothAccessoryToShareADiceRoll.zip) -->
 
