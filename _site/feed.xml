@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-07-06T02:36:14+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Dylan’s Notes</title><subtitle>&quot;Record some study and life notes&quot;
+</subtitle><author><name>Dylan</name><email>Leonsongfeng@gmail.com</email></author><entry><title type="html">iOS 18 and Xcode 16 New Feature</title><link href="http://localhost:4000/2024/06/20/iOS_18_Investigation.html" rel="alternate" type="text/html" title="iOS 18 and Xcode 16 New Feature" /><published>2024-06-20T00:00:00+08:00</published><updated>2024-06-20T00:00:00+08:00</updated><id>http://localhost:4000/2024/06/20/iOS_18_Investigation</id><content type="html" xml:base="http://localhost:4000/2024/06/20/iOS_18_Investigation.html"><![CDATA[<h1 id="new-feature">New feature</h1>
+
+<h2 id="ios-18-preview"><a href="https://www.apple.com/ios/ios-18-preview/">iOS 18 Preview</a></h2>
+
+<p><img src="/assets/images/iOS_18/home.jpeg" alt="iOS 18 Preview" /></p>
+
+<h1 id="release-note">Release Note</h1>
+<h2 id="ios-18-release-note"><a href="https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-release-notes">iOS 18 Release Note</a></h2>
+
+<h2 id="xcode-16-release-note"><a href="https://developer.apple.com/documentation/xcode-release-notes/xcode-16-release-notes">Xcode 16 Release Note</a></h2>
+
+<p><img src="/assets/images/iOS_18/xcode_release_note.PNG" alt="" /></p>
+<h2 id="all-technologies-updates"><a href="https://developer.apple.com/documentation/updates">All Technologies Updates</a></h2>
+<p><br /></p>
+
+<h1 id="whats-new-in-uikit"><a href="https://developer.apple.com/videos/play/wwdc2024/10118/">What’s new in UIKit</a></h1>
+<p><a href="https://developer.apple.com/documentation/Updates/UIKit#General">General</a></p>
+
+<h2 id="automatic-trait-tracking"><a href="https://developer.apple.com/documentation/uikit/app_and_environment/automatic_trait_tracking">Automatic trait tracking</a></h2>
+
+<p>Leverage automatic trait usage tracking inside key update methods such as layoutSubviews(), eliminating the need for manual trait change registration and invalidation.</p>
+
+<p align="left">    
+<img src="/assets/images/iOS_18/trait_new.PNG" width="330" />
+<img src="/assets/images/iOS_18/trait_old.PNG" width="330" />
+</p>
+
+<h2 id="list-improvements">List improvements</h2>
+<p>Take advantage of enhancements to <code class="language-plaintext highlighter-rouge">UIListContentConfiguration</code>, which now automatically updates to match the style of the containing list by using the new <code class="language-plaintext highlighter-rouge">UIListEnvironment</code> trait from the trait collection, removing the need to instantiate a configuration for a specific list style yourself.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>func configurations(for location: FileLocation) -&gt;
+    (UIListContentConfiguration, UIBackgroundConfiguration) {
+
+    var contentConfiguration = UIListContentConfiguration.cell()
+    let backgroundConfiguration = UIBackgroundConfiguration.listCell()
+
+    contentConfiguration.text = location.title
+    contentConfiguration.image = location.thumbnailImage
+
+    return (contentConfiguration, backgroundConfiguration)
+ }
+</code></pre></div></div>
+<p align="left">    
+<img src="/assets/images/iOS_18/list_improvements_old.PNG" width="330" />
+<img src="/assets/images/iOS_18/list_improvements_new.PNG" width="330" />
+</p>
+
+<p align="left">    
+<img src="/assets/images/iOS_18/list_improvements_api.png" width="300" />
+</p>
+
+<h2 id="uicalendarselectionweekofyear"><a href="https://developer.apple.com/documentation/uikit/uicalendarselectionweekofyear">UICalendarSelectionWeekOfYear</a></h2>
+<p>Select a specific week of the year in <code class="language-plaintext highlighter-rouge">UICalendarView</code> using the new <code class="language-plaintext highlighter-rouge">UICalendarSelectionWeekOfYear</code> selection option.</p>
+
+<p>    
+<img src="/assets/images/iOS_18/calendarview_demo_view.png" width="120" align="right" />
+</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Set the selection behavior.
+let selection = UICalendarSelectionWeekOfYear(delegate: self)
+calendarView.selectionBehavior = selection
+
+// Set the 11th week in the year 2024.
+selection.selectedWeekOfYear = DateComponents(
+    calendar: Calendar(identifier: .gregorian),
+    weekOfYear: 11,
+    yearForWeekOfYear: 2024)
+    
+</code></pre></div></div>
+
+<h2 id="symbol-animations"><a href="https://developer.apple.com/sf-symbols/">Symbol animations</a></h2>
+<p>Add repeat, wiggle, breathe, and rotate effects to <a href="https://developer.apple.com/sf-symbols/">SF Symbols</a>.</p>
+
+<p>    
+<img src="/assets/images/iOS_18/vedio/symbol.gif" width="300" align="right" />
+</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VStack{
+        Spacer()
+        Image(systemName: "arrow.down.circle.fill")
+            .resizable()
+            .frame(width: 100, height: 100)
+            .symbolEffect(.wiggle)
+            .symbolRenderingMode(.hierarchical)
+                .foregroundColor(.purple)
+        Spacer()
+        Image(systemName: "figure.skiing.crosscountry.circle.fill")
+            .resizable()
+            .frame(width: 100, height: 100)
+            .symbolEffect(.breathe)
+            .symbolRenderingMode(.hierarchical)
+                .foregroundColor(.indigo)
+        
+        Spacer()
+        Image(systemName: "figure.skiing.crosscountry.circle.fill")
+            .resizable()
+            .frame(width: 100, height: 100)
+            .symbolEffect(.rotate)
+            .symbolRenderingMode(.monochrome)
+            .foregroundColor(.indigo)
+        Spacer()
+    }
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h1 id="navigation"><a href="https://developer.apple.com/documentation/Updates/UIKit#Navigation">Navigation</a></h1>
+
+<h2 id="evolve-your-document-launch-experience"><a href="https://developer.apple.com/videos/play/wwdc2024/10132/">Evolve your document launch experience</a></h2>
+<p>Showcase your app and its unique identity with a new, customizable launch design for document-based apps. In UIKit, define <code class="language-plaintext highlighter-rouge">launchOptions</code> on your <code class="language-plaintext highlighter-rouge">UIDocumentViewController</code>.</p>
+<ul>
+  <li>SwiftUl
+    <ul>
+      <li>Recompile with the iOS 18 SDK</li>
+      <li>Add a DocumentGroupLaunchScene</li>
+    </ul>
+  </li>
+  <li>UlKit
+    <ul>
+      <li>Make UIDocumentViewController the root</li>
+      <li>Apply customizations to the launchOptions</li>
+    </ul>
+  </li>
+</ul>
+
+<p>    
+<img src="/assets/images/iOS_18/launch_doc_demo.png" width="100" align="right" />
+</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> // Customize launch options.
+    launchOptions.title = "My Text Editor"
+    launchOptions.background.backgroundColor = .darkGray
+    
+    // Provide an action for the secondary action.
+    let templateAction = LaunchOptions.createDocumentAction(withIntent: .template)
+    templateAction.title = "Choose a Template"
+    launchOptions.secondaryAction = templateAction
+    // Update the background
+    launchOptions.background.image = UIImage(named: "icon")
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="uitab-and-tabsidebar">UITab and TabSidebar</h2>
+<p>Make your app’s navigation more immersive by adopting the new tab bar on iPad. If your app presents a rich hierarchy of tab items, set the <code class="language-plaintext highlighter-rouge">mode</code> to <code class="language-plaintext highlighter-rouge">UITabBarController.Mode.tabSidebar</code> to automatically switch between the tab bar and sidebar representations. In SwiftUI, use <code class="language-plaintext highlighter-rouge">sidebarAdaptable</code>.
+<img src="/assets/images/iOS_18/tab_api_1.png" alt="" /></p>
+<ul>
+  <li>
+    <p>UITabBarController adds a new label type UITab, which can set title, subtitle, image, badgeValue, etc.</p>
+  </li>
+  <li>
+    <p>UITabBarControllerDelegate adds multiple UITab-related delegate methods.</p>
+  </li>
+</ul>
+
+<p><img src="/assets/images/iOS_18/tab_api_2.png" alt="" /></p>
+
+<p>Demo</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    tabBarController.mode = .tabSidebar
+    // Assign an array of tabs.
+    tabBarController.tabs = [
+       UITab(title: "First",
+             image: UIImage(systemName: "1.circle"),
+             identifier: "First Tab") { _ in
+                 // Return the view controller that the tab displays.
+                 firstHostingController
+             },
+       UITab(title: "Second",
+             image: UIImage(systemName: "2.circle"),
+             identifier: "Second Tab") { _ in
+                 // Return the view controller that the tab displays.
+                 secondHostingController
+             },
+       UITab(title: "Three",
+             image: UIImage(systemName: "3.circle"),
+             identifier: "Three Tab") { _ in
+                 // Return the view controller that the tab displays.
+                 DocumentViewController()
+             },
+       
+    ]
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th><code class="language-plaintext highlighter-rouge">iPhone</code></th>
+      <th><code class="language-plaintext highlighter-rouge">iPad</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="/assets/images/iOS_18/tab_demo_1.png" alt="Image" title="Image_border" class="border" /></td>
+      <td><img src="/assets/images/iOS_18/vedio/UItab.gif" alt="Image" title="Image_shadow" class="shadow" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="preferredtransition"><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/4448100-preferredtransition">PreferredTransition</a></h2>
+
+<p>Transition between views in a way that feels fluid and consistent using a systemwide zoom transition. In UIKit, configure your view controller’s <code class="language-plaintext highlighter-rouge">preferredTransition</code> to <code class="language-plaintext highlighter-rouge">zoom(options:sourceViewProvider:)</code>. In SwiftUI, use <code class="language-plaintext highlighter-rouge">zoom(sourceID:in:)</code>.</p>
+<p align="left">    
+<img src="/assets/images/iOS_18/prefer_transition_left.png" width="320" />
+<img src="/assets/images/iOS_18/prefer_transition_right.png" width="320" />
+</p>
+
+<h1 id="framework-interoperability"><a href="https://developer.apple.com/documentation/Updates/UIKit#Framework-interoperability">Framework interoperability</a></h1>
+<h2 id="ulkit-and-swiftul-interoperability">UlKit and SwiftUl interoperability</h2>
+<p>Use SwiftUI animations from AppKit and UIKit to create a consistent animation experience across apps that use multiple UI frameworks. In UIKit, use <code class="language-plaintext highlighter-rouge">animate(with:changes:completion:)</code>. In AppKit, use <code class="language-plaintext highlighter-rouge">animate(with:changes:completion:)</code>.</p>
+<ul>
+  <li>Animations</li>
+</ul>
+
+<p><img src="/assets/images/iOS_18/uikit_swiftUI_old.png" alt="" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Animate changes to one or more views using the specified SwiftUI animation. Animations performed using this method can be smoothly retargeted while preserving velocity, just like animations in SwiftUI views.
+Task {
+    // Begins an animation to move the view to a new location.
+    UIView.animate(with: .spring(duration: 1.0)) {
+        myView.center = CGPoint(x: 200, y: 200)
+    }
+    try await Task.sleep(for: .seconds(0.5))
+    
+    // Retargets the running animations to move the view to a different location.
+    UIView.animate(with: .spring) {
+        myView.center = CGPoint(x: 100, y: 400)
+    }
+}
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th><code class="language-plaintext highlighter-rouge">UIKit</code></th>
+      <th><code class="language-plaintext highlighter-rouge">SwiftUI</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="/assets/images/iOS_18/vedio/swiftUI_animation_1.gif" alt="Image" title="Image_border" class="border" /></td>
+      <td><img src="/assets/images/iOS_18/vedio/swiftUI_animation_2.gif" alt="Image" title="Image_shadow" class="shadow" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Gesture recognizers</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>switch gesture.state {
+case .changed:
+    UIView.animate(.interactiveSpring) {
+        bead.center = gesture.translation
+    }
+
+case .ended:
+    UIView.animate(.spring) {
+        bead.center = endOfBracelet
+    }
+}
+</code></pre></div></div>
+<h2 id="update-link"><a href="https://developer.apple.com/documentation/uikit/uiupdatelink">Update link</a></h2>
+<p>With a UI update link, you can follow the progress of each UI update and express preferences about how those updates happen. Use a UI update link when you need precise and predictable control over the UI update process.
+<code class="language-plaintext highlighter-rouge">UIUpdateLink</code> similar to <code class="language-plaintext highlighter-rouge">CADisplayLink</code>
+More features</p>
+<ul>
+  <li>View tracking</li>
+  <li>Low latency applications</li>
+  <li>Better performance</li>
+</ul>
+
+<p>    
+<img src="/assets/images/iOS_18/vedio/UIUpdateLink.gif" width="310" align="right" />
+</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let updateLink = UIUpdateLink(
+    view: view,
+    actionTarget: self,
+    selector: #selector(update)
+)
+updateLink.requiresContinuousUpdates = true
+updateLink.isEnabled = true
+
+@objc func update(updateLink: UIUpdateLink,
+                  updateInfo: UIUpdateInfo) {
+    view.center.y = sin(updateInfo.modelTime)
+        * 100 + view.bounds.midY
+}
+</code></pre></div></div>
+
+<h2 id="sensory-feedback"><a href="https://developer.apple.com/documentation/uikit/uicanvasfeedbackgenerator?language=objc%2F">Sensory feedback</a></h2>
+<p>Use canvas feedback to indicate when a drawing event occurs, such as an object snapping to a guide or ruler. When using Apple Pencil Pro with a compatible iPad, this type of feedback can provide a tactile response.</p>
+
+<p><img src="/assets/images/iOS_18/sensory_feedback.png" alt="" /></p>
+
+<h2 id="text-improvements">Text improvements</h2>
+<p><a href="https://developer.apple.com/videos/play/wwdc2024/10118/?time=7">Using new attributes for highlight</a></p>
+
+<p>    
+<img src="/assets/images/iOS_18/text_improvements.png" width="180" align="right" />
+</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var attributes = [NSAttributedString.Key: Any]()
+    // Highlight style
+    attributes[.textHighlightStyle] =
+    NSAttributedString.TextHighlightStyle.default
+    // Highlight color scheme
+    attributes[.textHighlightColorScheme] =
+    NSAttributedString.TextHighlightColorScheme.purple
+</code></pre></div></div>
+
+<p><img src="/assets/images/iOS_18/text_improvements_api.png" alt="" width="670px" height="180px" /></p>
+
+<h2 id="whats-new-in-location-authorization"><a href="https://developer.apple.com/cn/videos/play/wwdc2024/10212/?time=112">What’s new in location authorization</a></h2>
+<p>Location Authorization 2.0. Learn new recommendations and tips for getting the authorization you need, and new diagnostics that notify you when you’re not meeting authorization goals.</p>
+
+<p>    
+<img src="/assets/images/iOS_18/local_api.png" width="210" align="right" />
+</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Iterating liveUpdates to reflect current location
+Task {
+    let updates = CLLocationUpdate.liveUpdates()
+    for try await update in updates {
+        if let loc = update.location {
+            updateLocationUI(location: loc)
+        }
+    }
+}
+</code></pre></div></div>
+<p><br />
+<strong><a href="https://developer.apple.com/documentation/CoreLocation/adopting-live-updates-in-core-location">Download demo code</a></strong></p>
+
+<p><img src="/assets/images/iOS_18/vedio/ScreenRecording_06-19-2024_18-47-40_1.gif" alt="" /></p>
+
+<!-- ![](/assets/images/iOS_18/file/AdoptingLiveUpdatesInCoreLocation.zip) -->
+
+<h2 id="accessorysetupkit"><a href="https://developer.apple.com/videos/play/wwdc2024/10203/">AccessorySetupKit</a></h2>
+<p>Elevate your accessory setup experience with AccessorySetupKit. Display a beautiful pairing dialog with an image of your Bluetooth or Wi-Fi accessory — no trip to the Settings app required. Discover how to improve privacy by pairing only your app with an accessory. And learn how you can migrate existing accessories so they can be managed by AccessorySetupKit.</p>
+
+<p><strong><a href="https://developer.apple.com/documentation/AccessorySetupKit/authorizing-a-bluetooth-accessory-to-share-a-dice-roll">Download demo code</a></strong></p>
+
+<p><img src="/assets/images/iOS_18/vedio/ScreenRecording_06-19-2024_18-32-46_1.gif" alt="" />
+<!-- ![](/assets/images/iOS_18/file/AuthorizingABluetoothAccessoryToShareADiceRoll.zip) --></p>
+
+<h1 id="whats-new-in-swift">What’s new in Swift<a href="https://developer.apple.com/videos/play/wwdc2024/10136/"></a></h1>
+<ul>
+  <li><a href="https://developer.apple.com/documentation/updates/swift">Swift updates</a></li>
+  <li><a href="https://developer.apple.com/videos/play/wwdc2024/10169/">Migrate your app to Swift 6</a></li>
+</ul>
+
+<p><a href="https://developer.apple.com/cn/videos/play/wwdc2024/10170/">Consume noncopyable types in swift</a></p>
+
+<p><img src="/assets/images/iOS_18/swift_new_plan.png" alt="" /></p>
+
+<h2 id="data-race-safety">Data-race safety</h2>
+<p>Swift 6 improves concurrency checking further, and the Swift team say it “removes many false-positive data-race warnings” that were present in 5.10. It also introduces several targeted changes that will do wonders to make concurrency easier to adopt</p>
+
+<p>Swift 6 before and now display</p>
+<p align="left"> 
+<img src="/assets/images/iOS_18/data_race_safe_old.png" width="320" />
+<img src="/assets/images/iOS_18/data_race_safe_new.png" width="320" />
+</p>
+
+<h2 id="add-collection-operations-on-noncontiguous-elements">Add Collection Operations on Noncontiguous Elements</h2>
+<p>Operate on noncontiguous ranges in collections using <code class="language-plaintext highlighter-rouge">RangeSet</code> and <code class="language-plaintext highlighter-rouge">DiscontiguousSlice</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>struct ExamResult {
+    var student: String
+    var score: Int
+}
+// We can get a RangeSet containing the indices of all students who score 85% or higher like this
+        let results = [
+            ExamResult(student: "Eric Effiong", score: 95),
+            ExamResult(student: "Maeve Wiley", score: 70),
+            ExamResult(student: "Otis Milburn", score: 100)
+        ]
+// And if we wanted to get access to those students, we can use a new Collection subscript:
+        let topResults = results.indices { student in
+            student.score &gt;= 85
+        }
+       
+        for result in results[topResults] {
+            print("\(result.student) scored \(result.score)%")
+        }
+</code></pre></div></div>
+
+<h2 id="access-level-modifiers-on-import-declarations">Access-level modifiers on import declarations</h2>
+<p>Adds the ability to mark import declarations with access control modifiers, such as <strong>private import SomeLibrary</strong>.</p>
+
+<h2 id="upgrades-for-noncopyable-types">Upgrades for noncopyable types</h2>
+<p>In that code, the compiler enforces that <code class="language-plaintext highlighter-rouge">message.read()</code> can only ever be called once, because it consumes the object.</p>
+
+<p>    
+<img src="/assets/images/iOS_18/noncopyable_image.png" width="330" align="right" />
+</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>struct Message: ~Copyable {
+    var agent: String
+    private var message: String
+
+    init(agent: String, message: String) {
+        self.agent = agent
+        self.message = message
+    }
+    consuming func read() {
+        print("\(agent): \(message)")
+    }
+}
+ func createMessage() {
+        let message = Message(agent: "Ethan Hunt", message: "You need to abseil down a skyscraper for some reason.")
+        message.read()
+}
+</code></pre></div></div>
+
+<h2 id="typed-throws">Typed throws</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>enum IntegerParseError: Error {
+  case nonDigitCharacter(String, index: String.Index)
+}
+
+func parse(string: String) throws -&gt; Int {
+  for index in string.indices {
+    // ...
+    throw IntegerParseError.nonDigitCharacter(string, index: index)
+  }
+}
+
+do {
+  let value = try parse(string: "1+234")
+}
+catch let error as IntegerParseError {
+  // ...
+}
+catch {
+   // error is 'any Error'
+}
+
+func parse(string: String) throws -&gt; Int {
+  //...
+}
+func parse(string: String) -&gt; Int {
+  //...
+}
+</code></pre></div></div>
+<p>Swift 6</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+func parse(string: String) throws(IntegerParseError) -&gt; Int {
+  for index in string.indices {
+    // ...throw IntegerParseError.nonDigitCharacter(string, index: index)
+  }
+}
+
+do {
+  let value = try parse(string: "1+234")
+}
+catch {
+   // error is 'IntegerParseError'
+}
+
+func parse(string: String) throws(any Error) -&gt; Int {
+  //...
+}
+
+func parse(string: String) throws(Never) -&gt; Int {
+  //...
+}
+
+</code></pre></div></div>
+
+<h2 id="meet-swift-testing"><a href="https://developer.apple.com/videos/play/wwdc2024/10179/">Meet Swift Testing</a></h2>
+<p>Introducing Swift Testing: a new package for testing your code using Swift. Explore the building blocks of its powerful new API, discover how it can be applied in common testing workflows, and learn how it relates to XCTest and open source Swift.</p>
+
+<p align="left"> 
+<img src="/assets/images/iOS_18/swift_testing_1.png" width="330" />
+<img src="/assets/images/iOS_18/swift_testing_2.png" width="330" />
+</p>
+
+<p align="left"> 
+<img src="/assets/images/iOS_18/swift_testing_3.png" width="330" />
+<img src="/assets/images/iOS_18/swift_testing_4.png" width="330" />
+</p>
+
+<h1 id="swift-charts">Swift Charts</h1>
+<p>The plot thickens! Learn how to render beautiful charts representing math functions and extensive datasets using function and vectorized plots in your app. Whether you’re looking to display functions common in aerodynamics, magnetism, and higher order field theory, or create large interactive heat maps, Swift Charts has you covered.</p>
+
+<ul>
+  <li>Added new plot API variants at iOS 18</li>
+</ul>
+
+<p><img src="/assets/images/iOS_18/swift_chart_image.png" alt="" /></p>
+<ul>
+  <li>Charts demo</li>
+</ul>
+
+<p><img src="/assets/images/iOS_18/swift_chart_demo.png" alt="" /></p>
+<ul>
+  <li>Source Demos</li>
+</ul>
+
+<p>    
+<img src="/assets/images/iOS_18/swift_chart_source_demo_1.png" width="120" align="right" />
+</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  Chart {
+        LinePlot(x: "x", y: "y", t: "t", domain: -.pi ... .pi) {
+                t in
+                let x = sqrt(2) * pow(sin(t), 3)
+                let y = cos(t) * (2 - cos(t) - pow(cos(t), 2))
+                return (x, y)
+           }
+            .foregroundStyle(.red)
+            .opacity(0.8)
+        }
+        .chartXScale(domain: -3 ... 3)
+        .chartYScale(domain: -4 ... 2)
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>    
+<img src="/assets/images/iOS_18/swift_chart_source_demo_2.png" width="120" align="right" />
+</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Chart {
+   AreaPlot(x: "x", yStart: "cos(x)", yEnd: "sin(x)") { x in
+           (yStart: cos(x / 180 * .pi),
+            yEnd: sin(x / 180 * .pi))
+        }
+            .foregroundStyle(.orange)
+            .opacity(0.8)
+    }
+    .chartXScale(domain: -315 ... 315)
+    .chartYScale(domain: -5 ... 5)
+</code></pre></div></div>
+<p><br /></p>
+
+<h1 id="whats-new-in-swiftdata"><a href="https://developer.apple.com/videos/play/wwdc2024/10137/">What’s new in SwiftData</a></h1>
+
+<p><a href="https://developer.apple.com/videos/play/wwdc2024/10138">Create a custom data store with SwiftData</a></p>
+
+<p><a href="https://developer.apple.com/videos/play/wwdc2024/10075">Track model changes with SwiftData history</a></p>
+
+<p>Combining Core Data’s proven persistence technology and Swift’s modern concurrency features, SwiftData enables you to add persistence to your app quickly, with minimal code and no external dependencies. Using modern language features like macros, SwiftData enables you to write code that is fast, efficient, and safe, enabling you to describe the entire model layer (or object graph) for your app. The framework handles storing the underlying model data, and optionally, syncing that data across multiple devices.</p>
+
+<p><img src="/assets/images/iOS_18/swift_data_api.png" alt="" /></p>
+<h1 id="whats-new-in-swiftui"><a href="https://developer.apple.com/videos/play/wwdc2024/10144/">What’s new in SwiftUI</a></h1>
+<ul>
+  <li><a href="https://developer.apple.com/videos/play/wwdc2024/10150/?time=786">SwiftUI essentials</a></li>
+  <li><a href="https://developer.apple.com/documentation/Updates/SwiftUI">SwiftUI updates</a></li>
+</ul>
+
+<h1 id="whats-new-in-xcode-16">What’s new in Xcode 16</h1>
+<p><strong>Support breakpoint resumption when downloading various Components.</strong></p>
+
+<p align="left"> 
+<img src="/assets/images/iOS_18/xcode_16_1.png" width="320" />
+<img src="/assets/images/iOS_18/xcode_16_2.png" width="320" />
+</p>
+
+<p><strong>Added Other Components of Predictive Code Completion Model, which is mainly used for code prediction function</strong></p>
+
+<p><img src="/assets/images/iOS_18/xcode_16_3.png" alt="" /></p>
+
+<p><strong>Added Swift Testing</strong></p>
+
+<p align="left"> 
+<img src="/assets/images/iOS_18/xcode_16_4.png" width="320" />
+<img src="/assets/images/iOS_18/xcode_16_5.png" width="320" />
+</p>
+
+<p><strong>Project navigator New File/Template menu</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">New File </code>–&gt; <code class="language-plaintext highlighter-rouge">New Empty File</code> : The original functions are retained
+<code class="language-plaintext highlighter-rouge">New File from Template...</code>: Swift source files can be created quickly</p>
+<p align="left"> 
+<img src="/assets/images/iOS_18/xcode_16_6.png" width="320" />
+<img src="/assets/images/iOS_18/xcode_16_7.png" width="320" />
+</p>
+
+<p><strong>Asset management</strong></p>
+
+<p><img src="/assets/images/iOS_18/xcode_16_8.png" alt="" /></p>
+<p align="left"> 
+<img src="/assets/images/iOS_18/xcode_16_9.png" width="320" />
+<img src="/assets/images/iOS_18/vedio/xcode_icon.gif" width="320" />
+</p>]]></content><author><name>Dylan</name></author><category term="Technology" /><summary type="html"><![CDATA[New feature iOS 18 Preview Release Note iOS 18 Release Note Xcode 16 Release Note All Technologies Updates What’s new in UIKit General Automatic trait tracking Leverage automatic trait usage tracking inside key update methods such as layoutSubviews(), eliminating the need for manual trait change registration and invalidation. List improvements Take advantage of enhancements to UIListContentConfiguration, which now automatically updates to match the style of the containing list by using the new UIListEnvironment trait from the trait collection, removing the need to instantiate a configuration for a specific list style yourself. func configurations(for location: FileLocation) -&gt; (UIListContentConfiguration, UIBackgroundConfiguration) { var contentConfiguration = UIListContentConfiguration.cell() let backgroundConfiguration = UIBackgroundConfiguration.listCell() contentConfiguration.text = location.title contentConfiguration.image = location.thumbnailImage return (contentConfiguration, backgroundConfiguration) } UICalendarSelectionWeekOfYear Select a specific week of the year in UICalendarView using the new UICalendarSelectionWeekOfYear selection option. // Set the selection behavior. let selection = UICalendarSelectionWeekOfYear(delegate: self) calendarView.selectionBehavior = selection // Set the 11th week in the year 2024. selection.selectedWeekOfYear = DateComponents( calendar: Calendar(identifier: .gregorian), weekOfYear: 11, yearForWeekOfYear: 2024) Symbol animations Add repeat, wiggle, breathe, and rotate effects to SF Symbols. VStack{ Spacer() Image(systemName: "arrow.down.circle.fill") .resizable() .frame(width: 100, height: 100) .symbolEffect(.wiggle) .symbolRenderingMode(.hierarchical) .foregroundColor(.purple) Spacer() Image(systemName: "figure.skiing.crosscountry.circle.fill") .resizable() .frame(width: 100, height: 100) .symbolEffect(.breathe) .symbolRenderingMode(.hierarchical) .foregroundColor(.indigo) Spacer() Image(systemName: "figure.skiing.crosscountry.circle.fill") .resizable() .frame(width: 100, height: 100) .symbolEffect(.rotate) .symbolRenderingMode(.monochrome) .foregroundColor(.indigo) Spacer() } Navigation Evolve your document launch experience Showcase your app and its unique identity with a new, customizable launch design for document-based apps. In UIKit, define launchOptions on your UIDocumentViewController. SwiftUl Recompile with the iOS 18 SDK Add a DocumentGroupLaunchScene UlKit Make UIDocumentViewController the root Apply customizations to the launchOptions // Customize launch options. launchOptions.title = "My Text Editor" launchOptions.background.backgroundColor = .darkGray // Provide an action for the secondary action. let templateAction = LaunchOptions.createDocumentAction(withIntent: .template) templateAction.title = "Choose a Template" launchOptions.secondaryAction = templateAction // Update the background launchOptions.background.image = UIImage(named: "icon") UITab and TabSidebar Make your app’s navigation more immersive by adopting the new tab bar on iPad. If your app presents a rich hierarchy of tab items, set the mode to UITabBarController.Mode.tabSidebar to automatically switch between the tab bar and sidebar representations. In SwiftUI, use sidebarAdaptable. UITabBarController adds a new label type UITab, which can set title, subtitle, image, badgeValue, etc. UITabBarControllerDelegate adds multiple UITab-related delegate methods. Demo tabBarController.mode = .tabSidebar // Assign an array of tabs. tabBarController.tabs = [ UITab(title: "First", image: UIImage(systemName: "1.circle"), identifier: "First Tab") { _ in // Return the view controller that the tab displays. firstHostingController }, UITab(title: "Second", image: UIImage(systemName: "2.circle"), identifier: "Second Tab") { _ in // Return the view controller that the tab displays. secondHostingController }, UITab(title: "Three", image: UIImage(systemName: "3.circle"), identifier: "Three Tab") { _ in // Return the view controller that the tab displays. DocumentViewController() }, ] iPhone iPad PreferredTransition Transition between views in a way that feels fluid and consistent using a systemwide zoom transition. In UIKit, configure your view controller’s preferredTransition to zoom(options:sourceViewProvider:). In SwiftUI, use zoom(sourceID:in:). Framework interoperability UlKit and SwiftUl interoperability Use SwiftUI animations from AppKit and UIKit to create a consistent animation experience across apps that use multiple UI frameworks. In UIKit, use animate(with:changes:completion:). In AppKit, use animate(with:changes:completion:). Animations // Animate changes to one or more views using the specified SwiftUI animation. Animations performed using this method can be smoothly retargeted while preserving velocity, just like animations in SwiftUI views. Task { // Begins an animation to move the view to a new location. UIView.animate(with: .spring(duration: 1.0)) { myView.center = CGPoint(x: 200, y: 200) } try await Task.sleep(for: .seconds(0.5)) // Retargets the running animations to move the view to a different location. UIView.animate(with: .spring) { myView.center = CGPoint(x: 100, y: 400) } } UIKit SwiftUI Gesture recognizers switch gesture.state { case .changed: UIView.animate(.interactiveSpring) { bead.center = gesture.translation } case .ended: UIView.animate(.spring) { bead.center = endOfBracelet } } Update link With a UI update link, you can follow the progress of each UI update and express preferences about how those updates happen. Use a UI update link when you need precise and predictable control over the UI update process. UIUpdateLink similar to CADisplayLink More features View tracking Low latency applications Better performance let updateLink = UIUpdateLink( view: view, actionTarget: self, selector: #selector(update) ) updateLink.requiresContinuousUpdates = true updateLink.isEnabled = true @objc func update(updateLink: UIUpdateLink, updateInfo: UIUpdateInfo) { view.center.y = sin(updateInfo.modelTime) * 100 + view.bounds.midY } Sensory feedback Use canvas feedback to indicate when a drawing event occurs, such as an object snapping to a guide or ruler. When using Apple Pencil Pro with a compatible iPad, this type of feedback can provide a tactile response. Text improvements Using new attributes for highlight var attributes = [NSAttributedString.Key: Any]() // Highlight style attributes[.textHighlightStyle] = NSAttributedString.TextHighlightStyle.default // Highlight color scheme attributes[.textHighlightColorScheme] = NSAttributedString.TextHighlightColorScheme.purple What’s new in location authorization Location Authorization 2.0. Learn new recommendations and tips for getting the authorization you need, and new diagnostics that notify you when you’re not meeting authorization goals. // Iterating liveUpdates to reflect current location Task { let updates = CLLocationUpdate.liveUpdates() for try await update in updates { if let loc = update.location { updateLocationUI(location: loc) } } } Download demo code AccessorySetupKit Elevate your accessory setup experience with AccessorySetupKit. Display a beautiful pairing dialog with an image of your Bluetooth or Wi-Fi accessory — no trip to the Settings app required. Discover how to improve privacy by pairing only your app with an accessory. And learn how you can migrate existing accessories so they can be managed by AccessorySetupKit. Download demo code What’s new in Swift Swift updates Migrate your app to Swift 6 Consume noncopyable types in swift Data-race safety Swift 6 improves concurrency checking further, and the Swift team say it “removes many false-positive data-race warnings” that were present in 5.10. It also introduces several targeted changes that will do wonders to make concurrency easier to adopt Swift 6 before and now display Add Collection Operations on Noncontiguous Elements Operate on noncontiguous ranges in collections using RangeSet and DiscontiguousSlice. struct ExamResult { var student: String var score: Int } // We can get a RangeSet containing the indices of all students who score 85% or higher like this let results = [ ExamResult(student: "Eric Effiong", score: 95), ExamResult(student: "Maeve Wiley", score: 70), ExamResult(student: "Otis Milburn", score: 100) ] // And if we wanted to get access to those students, we can use a new Collection subscript: let topResults = results.indices { student in student.score &gt;= 85 } for result in results[topResults] { print("\(result.student) scored \(result.score)%") } Access-level modifiers on import declarations Adds the ability to mark import declarations with access control modifiers, such as private import SomeLibrary. Upgrades for noncopyable types In that code, the compiler enforces that message.read() can only ever be called once, because it consumes the object. struct Message: ~Copyable { var agent: String private var message: String init(agent: String, message: String) { self.agent = agent self.message = message } consuming func read() { print("\(agent): \(message)") } } func createMessage() { let message = Message(agent: "Ethan Hunt", message: "You need to abseil down a skyscraper for some reason.") message.read() } Typed throws enum IntegerParseError: Error { case nonDigitCharacter(String, index: String.Index) } func parse(string: String) throws -&gt; Int { for index in string.indices { // ... throw IntegerParseError.nonDigitCharacter(string, index: index) } } do { let value = try parse(string: "1+234") } catch let error as IntegerParseError { // ... } catch { // error is 'any Error' } func parse(string: String) throws -&gt; Int { //... } func parse(string: String) -&gt; Int { //... } Swift 6 func parse(string: String) throws(IntegerParseError) -&gt; Int { for index in string.indices { // ...throw IntegerParseError.nonDigitCharacter(string, index: index) } } do { let value = try parse(string: "1+234") } catch { // error is 'IntegerParseError' } func parse(string: String) throws(any Error) -&gt; Int { //... } func parse(string: String) throws(Never) -&gt; Int { //... } Meet Swift Testing Introducing Swift Testing: a new package for testing your code using Swift. Explore the building blocks of its powerful new API, discover how it can be applied in common testing workflows, and learn how it relates to XCTest and open source Swift. Swift Charts The plot thickens! Learn how to render beautiful charts representing math functions and extensive datasets using function and vectorized plots in your app. Whether you’re looking to display functions common in aerodynamics, magnetism, and higher order field theory, or create large interactive heat maps, Swift Charts has you covered. Added new plot API variants at iOS 18 Charts demo Source Demos Chart { LinePlot(x: "x", y: "y", t: "t", domain: -.pi ... .pi) { t in let x = sqrt(2) * pow(sin(t), 3) let y = cos(t) * (2 - cos(t) - pow(cos(t), 2)) return (x, y) } .foregroundStyle(.red) .opacity(0.8) } .chartXScale(domain: -3 ... 3) .chartYScale(domain: -4 ... 2) Chart { AreaPlot(x: "x", yStart: "cos(x)", yEnd: "sin(x)") { x in (yStart: cos(x / 180 * .pi), yEnd: sin(x / 180 * .pi)) } .foregroundStyle(.orange) .opacity(0.8) } .chartXScale(domain: -315 ... 315) .chartYScale(domain: -5 ... 5) What’s new in SwiftData Create a custom data store with SwiftData Track model changes with SwiftData history Combining Core Data’s proven persistence technology and Swift’s modern concurrency features, SwiftData enables you to add persistence to your app quickly, with minimal code and no external dependencies. Using modern language features like macros, SwiftData enables you to write code that is fast, efficient, and safe, enabling you to describe the entire model layer (or object graph) for your app. The framework handles storing the underlying model data, and optionally, syncing that data across multiple devices. What’s new in SwiftUI SwiftUI essentials SwiftUI updates What’s new in Xcode 16 Support breakpoint resumption when downloading various Components. Added Other Components of Predictive Code Completion Model, which is mainly used for code prediction function Added Swift Testing Project navigator New File/Template menu New File –&gt; New Empty File : The original functions are retained New File from Template...: Swift source files can be created quickly Asset management]]></summary></entry><entry><title type="html">SwiftUI 学习笔记</title><link href="http://localhost:4000/2024/05/20/SwiftUI-Study.html" rel="alternate" type="text/html" title="SwiftUI 学习笔记" /><published>2024-05-20T00:00:00+08:00</published><updated>2024-05-20T00:00:00+08:00</updated><id>http://localhost:4000/2024/05/20/SwiftUI-Study</id><content type="html" xml:base="http://localhost:4000/2024/05/20/SwiftUI-Study.html"><![CDATA[<h2 id="text-theme---cover">TeXt Theme - Cover</h2>
+
+<p><img src="https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/TeXt-home.jpg" alt="TeXt Theme" /></p>
+
+<p>学习SwiftUI 参考Github <a href="https://github.com/Jinxiansen/SwiftUI">示例</a></p>
+
+<h2 id="基础控件">基础控件</h2>
+
+<h3 id="text文本">Text文本</h3>
+<h4 id="text">Text</h4>
+<p>Text 用来展示一行或多行的文本内容，效果等同于 UILabel，但更加优秀。 如果要创建 Text， 只需通过 Text(“SwiftUI”) 即可创建； 采用链式语法，也可以为文本添加多项属性，如字体、颜色、阴影、上左下右的间距等。</p>
+<pre><code class="language-Text">struct TextPage: View {
+    var body: some View {
+        Text("SwiftUI")
+            .foregroundColor(.red)
+            .font(.title)
+            .fontWeight(.bold)
+            .italic()
+            .underline()
+            .shadow(color: .orange, radius: 1, x: 0, y: 2)
+    }
+}
+</code></pre>
+<h4 id="textfield">TextField</h4>
+<p>TextField 用来添加普通的输入框，一般常用作文本输入。</p>
+<pre><code class="language-TextField">struct TextFieldPage: View {
+    @State private var username: String = ""
+    @State private var password: String = ""
+    var body: some View {
+        VStack {
+            HStack {
+                Text("用户名:").foregroundStyle(.secondary)
+                TextField("请输入用户名", text: $username, onEditingChanged: { _ in
+                    print("onEditingChanged \(self.$username)") },
+                          onCommit: { print("onCommit\(self.$username)")
+                }).padding()
+            }.padding(10)// 内边距
+                .frame(height: 50, alignment: .center)
+            
+            HStack {
+                Text("密    码: ").foregroundStyle(.secondary)
+                SecureField("请输入密码", text: $password).padding()
+            }.padding(10)
+        }
+        .offset(x:100, y: -100)
+        .navigationTitle("TextField")
+    }
+}
+</code></pre>
+<h4 id="securefield">SecureField</h4>
+<p>SecureField 一般作为密码输入，使用上和TextField并无差异</p>
+<h3 id="image-图片">Image 图片</h3>
+
+<h4 id="image">Image</h4>
+<p>Image 控件用于展示图片。</p>
+<pre><code class="language-Image">struct ImageIconPage: View {
+    let range = 0...6
+    var body: some View {
+        VStack{
+            ForEach(range, id: \.self) { index in
+                Image(systemName: "star.fill")
+                    .resizable()
+                    .frame(width: 30 * CGFloat(index), height: 30 * CGFloat(index), alignment: .center)
+                    .foregroundColor(.yellow)
+            }
+        }
+    }
+}
+</code></pre>
+<h4 id="webimage">WebImage</h4>
+<p>webImage 用于下载网络图片，使用的 URLSession下载成功后替换原有 Image；你也可以在 downloadWebImage 方法中使用 <a href="https://github.com/onevcat/Kingfisher">Kingfisher</a> 。</p>
+<pre><code class="language-WebImage">struct WebImagePage: View {
+    @State private var uiImage: UIImage? = nil
+    let placeholderImage = UIImage(systemName: "star.fill")!
+    var body: some View {
+        Image(uiImage: self.uiImage ?? placeholderImage)
+            .resizable()
+            .onAppear(perform: loadImage)
+            .frame(width: 80,
+                   height: 80,
+                   alignment: .center)
+            .onTapGesture {
+                print("Tap ")
+            }.navigationBarTitle(Text("WebImage"))
+    }
+    
+    func loadImage() {
+        guard let url = URL(string: "https://b0.bdstatic.com/4492935220f7efdae0356e133e9aeee8.jpg@h_1280") else {
+            print("Invalid URL.")
+            return
+        }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let data = data, let image = UIImage(data: data) {
+                self.uiImage = image
+            }else {
+                print("error: \(String(describing: error))")
+            }
+        }.resume()
+    }
+}
+</code></pre>
+<h4 id="button">Button</h4>
+<p>Button 用于响应点击事件。</p>
+<pre><code class="language-Button">struct ButtonPage: View {
+    var body: some View {
+        Button {
+            print("Tap")
+        } label: {
+            Text("I'm a Button")
+                .foregroundColor(.white)
+                .padding()
+                .background(Color.blue)
+                .cornerRadius(10)
+        }
+    }
+}
+</code></pre>]]></content><author><name>Dylan</name></author><category term="Study" /><summary type="html"><![CDATA[TeXt Theme - Cover 学习SwiftUI 参考Github 示例 基础控件 Text文本 Text Text 用来展示一行或多行的文本内容，效果等同于 UILabel，但更加优秀。 如果要创建 Text， 只需通过 Text(“SwiftUI”) 即可创建； 采用链式语法，也可以为文本添加多项属性，如字体、颜色、阴影、上左下右的间距等。 struct TextPage: View { var body: some View { Text("SwiftUI") .foregroundColor(.red) .font(.title) .fontWeight(.bold) .italic() .underline() .shadow(color: .orange, radius: 1, x: 0, y: 2) } } TextField TextField 用来添加普通的输入框，一般常用作文本输入。 struct TextFieldPage: View { @State private var username: String = "" @State private var password: String = "" var body: some View { VStack { HStack { Text("用户名:").foregroundStyle(.secondary) TextField("请输入用户名", text: $username, onEditingChanged: { _ in print("onEditingChanged \(self.$username)") }, onCommit: { print("onCommit\(self.$username)") }).padding() }.padding(10)// 内边距 .frame(height: 50, alignment: .center) HStack { Text("密 码: ").foregroundStyle(.secondary) SecureField("请输入密码", text: $password).padding() }.padding(10) } .offset(x:100, y: -100) .navigationTitle("TextField") } } SecureField SecureField 一般作为密码输入，使用上和TextField并无差异 Image 图片 Image Image 控件用于展示图片。 struct ImageIconPage: View { let range = 0...6 var body: some View { VStack{ ForEach(range, id: \.self) { index in Image(systemName: "star.fill") .resizable() .frame(width: 30 * CGFloat(index), height: 30 * CGFloat(index), alignment: .center) .foregroundColor(.yellow) } } } } WebImage webImage 用于下载网络图片，使用的 URLSession下载成功后替换原有 Image；你也可以在 downloadWebImage 方法中使用 Kingfisher 。 struct WebImagePage: View { @State private var uiImage: UIImage? = nil let placeholderImage = UIImage(systemName: "star.fill")! var body: some View { Image(uiImage: self.uiImage ?? placeholderImage) .resizable() .onAppear(perform: loadImage) .frame(width: 80, height: 80, alignment: .center) .onTapGesture { print("Tap ") }.navigationBarTitle(Text("WebImage")) } func loadImage() { guard let url = URL(string: "https://b0.bdstatic.com/4492935220f7efdae0356e133e9aeee8.jpg@h_1280") else { print("Invalid URL.") return } URLSession.shared.dataTask(with: url) { (data, response, error) in if let data = data, let image = UIImage(data: data) { self.uiImage = image }else { print("error: \(String(describing: error))") } }.resume() } } Button Button 用于响应点击事件。 struct ButtonPage: View { var body: some View { Button { print("Tap") } label: { Text("I'm a Button") .foregroundColor(.white) .padding() .background(Color.blue) .cornerRadius(10) } } }]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/iOS_18/preview.jpeg" /><media:content medium="image" url="http://localhost:4000/assets/images/iOS_18/preview.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Github Page 配置踩坑记录</title><link href="http://localhost:4000/2024/05/12/github-page-configuration.html" rel="alternate" type="text/html" title="Github Page 配置踩坑记录" /><published>2024-05-12T00:00:00+08:00</published><updated>2024-05-12T00:00:00+08:00</updated><id>http://localhost:4000/2024/05/12/github-page-configuration</id><content type="html" xml:base="http://localhost:4000/2024/05/12/github-page-configuration.html"><![CDATA[<h1 id="使用jekyll本地调试可以访问静态资源但是上传至github无法访问">使用jekyll本地调试可以访问静态资源，但是上传至GitHub无法访问</h1>
+
+<p>使用jekyll本地调试可以访问静态资源，但是上传至GitHub无法访问的问题</p>
+
+<p>在参考网上教程配置完github page之后，将fork 的主题下载之后，启动本地服务器运行没问题.</p>
+
+<p><img src="/assets/images/install_githubpage/local_test_image.png" alt="本地服务器" /></p>
+
+<p>但是在远端打开后CSS不渲染</p>
+
+<p><img src="/assets/images/install_githubpage/github_page_image.png" alt="github page 展示" /></p>
+
+<p>可能的原因</p>
+
+<h2 id="_site文件被忽略检查gitignore文件">_site文件被忽略,检查.gitignore文件</h2>
+
+<p>.gitignore文件有可能将_site文件添加为忽略文件，以至于<code class="language-plaintext highlighter-rouge">git add .</code>等后续操作将该文件忽略，从而无法上传至远程仓库的问题。</p>
+
+<p>如下，是我下载jekyll模板后，存在的内容，可以看到_site文件以及<code class="language-plaintext highlighter-rouge">.sass-cache</code>文件都被忽略了</p>
+
+<p><strong>解决：</strong> 检查远程仓库是否有_site文件，将.gitignore文件中的内容去掉，重新提交至远程仓库即可。
+<img src="/assets/images/install_githubpage/site_change.png" alt="_site commit change" /></p>
+
+<h2 id="baseurl字段设置的有问题">baseurl字段设置的有问题</h2>
+
+<p>如果baseurl字段设置了值，jekyll本地生成的所以HTML文件中，其对静态资源的访问路径都会加上改值以作地址映射</p>
+
+<p>上传至远程仓库后，其由于github的根目录没有关于<code class="language-plaintext highlighter-rouge">/jekyll-theme-memoirs</code>这个地址映射，所有使得有该映射地址的静态文件都无法访问</p>
+
+<p><strong>解决：</strong> 我目前还没找到可以为GitHub添加映射的方法，因此只能先将baseurl的值置空</p>
+
+<p><img src="/assets/images/install_githubpage/baseurl_change.png" alt="baseurl commit change" /></p>]]></content><author><name>Dylan</name></author><category term="Notes" /><summary type="html"><![CDATA[使用jekyll本地调试可以访问静态资源，但是上传至GitHub无法访问 使用jekyll本地调试可以访问静态资源，但是上传至GitHub无法访问的问题 在参考网上教程配置完github page之后，将fork 的主题下载之后，启动本地服务器运行没问题. 但是在远端打开后CSS不渲染 可能的原因 _site文件被忽略,检查.gitignore文件 .gitignore文件有可能将_site文件添加为忽略文件，以至于git add .等后续操作将该文件忽略，从而无法上传至远程仓库的问题。 如下，是我下载jekyll模板后，存在的内容，可以看到_site文件以及.sass-cache文件都被忽略了 解决： 检查远程仓库是否有_site文件，将.gitignore文件中的内容去掉，重新提交至远程仓库即可。 baseurl字段设置的有问题 如果baseurl字段设置了值，jekyll本地生成的所以HTML文件中，其对静态资源的访问路径都会加上改值以作地址映射 上传至远程仓库后，其由于github的根目录没有关于/jekyll-theme-memoirs这个地址映射，所有使得有该映射地址的静态文件都无法访问 解决： 我目前还没找到可以为GitHub添加映射的方法，因此只能先将baseurl的值置空]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/iOS_18/preview.jpeg" /><media:content medium="image" url="http://localhost:4000/assets/images/iOS_18/preview.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome</title><link href="http://localhost:4000/2018/07/01/welcome.html" rel="alternate" type="text/html" title="Welcome" /><published>2018-07-01T00:00:00+08:00</published><updated>2018-07-01T00:00:00+08:00</updated><id>http://localhost:4000/2018/07/01/welcome</id><content type="html" xml:base="http://localhost:4000/2018/07/01/welcome.html"><![CDATA[<p>If you see this page, that means you have setup your site. enjoy! :ghost: :ghost: :ghost:</p>
+
+<p>You may want to <a href="https://kitian616.github.io/jekyll-TeXt-theme/docs/en/configuration">config the site</a> or <a href="https://kitian616.github.io/jekyll-TeXt-theme/docs/en/writing-posts">writing a post</a> next. Please feel free to <a href="https://github.com/kitian616/jekyll-TeXt-theme/issues">create an issue</a> or <a href="mailto:kitian616@outlook.com">send me email</a> if you have any questions.</p>
+
+<!--more-->
+
+<hr />
+
+<p>If you like TeXt, don’t forget to give me a star. :star2:</p>
+
+<p><a href="https://github.com/kitian616/jekyll-TeXt-theme/"><img src="https://img.shields.io/github/stars/kitian616/jekyll-TeXt-theme.svg?label=Stars&amp;style=social" alt="Star This Project" /></a></p>]]></content><author><name>Dylan</name></author><category term="TeXt" /><summary type="html"><![CDATA[If you see this page, that means you have setup your site. enjoy! :ghost: :ghost: :ghost: You may want to config the site or writing a post next. Please feel free to create an issue or send me email if you have any questions.]]></summary></entry><entry><title type="html">Post with Header Image</title><link href="http://localhost:4000/2018/06/01/header-image.html" rel="alternate" type="text/html" title="Post with Header Image" /><published>2018-06-01T00:00:00+08:00</published><updated>2018-06-01T00:00:00+08:00</updated><id>http://localhost:4000/2018/06/01/header-image</id><content type="html" xml:base="http://localhost:4000/2018/06/01/header-image.html"><![CDATA[<p>https://github.com/kitian616/jekyll-TeXt-theme/tree/v2.2.6?tab=readme-ov-file</p>
+
+<p>A Post with Header Image, See <a href="https://kitian616.github.io/jekyll-TeXt-theme/samples.html#page-layout">Page layout</a> for more examples.</p>
+
+<!--more-->]]></content><author><name>Dylan</name></author><category term="TeXt" /><summary type="html"><![CDATA[https://github.com/kitian616/jekyll-TeXt-theme/tree/v2.2.6?tab=readme-ov-file A Post with Header Image, See Page layout for more examples.]]></summary></entry></feed>
