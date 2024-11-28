@@ -1,5 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-07-06T02:36:14+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Dylan’s Notes</title><subtitle>&quot;Record some study and life notes&quot;
-</subtitle><author><name>Dylan</name><email>Leonsongfeng@gmail.com</email></author><entry><title type="html">iOS 18 and Xcode 16 New Feature</title><link href="http://localhost:4000/2024/06/20/iOS_18_Investigation.html" rel="alternate" type="text/html" title="iOS 18 and Xcode 16 New Feature" /><published>2024-06-20T00:00:00+08:00</published><updated>2024-06-20T00:00:00+08:00</updated><id>http://localhost:4000/2024/06/20/iOS_18_Investigation</id><content type="html" xml:base="http://localhost:4000/2024/06/20/iOS_18_Investigation.html"><![CDATA[<h1 id="new-feature">New feature</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-11-28T11:27:10+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Dylan’s Notes</title><subtitle>&quot;Record some study and life notes&quot;
+</subtitle><author><name>Dylan</name><email>Leonsongfeng@gmail.com</email></author><entry><title type="html">改善心情工具用户协议</title><link href="http://localhost:4000/2024/11/28/change-your-mood.html" rel="alternate" type="text/html" title="改善心情工具用户协议" /><published>2024-11-28T00:00:00+08:00</published><updated>2024-11-28T00:00:00+08:00</updated><id>http://localhost:4000/2024/11/28/change-your-mood</id><content type="html" xml:base="http://localhost:4000/2024/11/28/change-your-mood.html"><![CDATA[<p>感谢您使用 <strong>改善心情工具</strong>（以下简称“本工具”）。在您使用本工具之前，请仔细阅读以下用户协议。本协议对您使用本工具的行为具有法律约束力。</p>
+
+<h2 id="一接受条款">一、接受条款</h2>
+
+<p>通过下载、安装或使用本工具，您同意遵守以下所有条款和条件。如果您不同意本协议的任何内容，请停止使用本工具。</p>
+
+<h2 id="二服务内容">二、服务内容</h2>
+
+<p>本工具致力于帮助用户改善心情，提供一系列心理调节、情绪管理的功能。功能包括但不限于：</p>
+
+<ul>
+  <li>改善心情的小工具</li>
+  <li>自定义改善心情想法</li>
+</ul>
+
+<p>我们将不断优化和更新本工具，功能可能随时变更。</p>
+
+<h2 id="三用户注册与账户安全">三、用户注册与账户安全</h2>
+
+<ol>
+  <li>用户在使用本工具前需要注册账户，提供真实、有效的信息。</li>
+  <li>用户应当妥善保管自己的账户信息，不得将账户信息透露给他人。</li>
+  <li>用户应对自己的账户和密码安全负责，对于任何未经授权的使用，您需立即通知我们。</li>
+</ol>
+
+<h2 id="四隐私政策">四、隐私政策</h2>
+
+<p>我们非常重视您的隐私保护。使用本工具时，您可能需要提供一些个人信息，具体隐私政策如下：</p>
+
+<ul>
+  <li>我们不会未经您的同意向第三方泄露您的个人信息。</li>
+  <li>我们将采取合理措施保护您的信息安全。</li>
+  <li>本工具可能会收集您的情绪记录、使用习惯等数据，但这些数据仅限于改进服务，不会与其他数据合并或共享给未经授权的第三方。</li>
+</ul>
+
+<h2 id="五用户义务">五、用户义务</h2>
+
+<ol>
+  <li>用户不得利用本工具从事违法、违规行为，包括但不限于：
+    <ul>
+      <li>传播恶意软件、病毒或其他有害程序。</li>
+      <li>侵犯他人合法权益，如侵犯知识产权、泄露他人隐私等。</li>
+      <li>发布不正当、侮辱、恶心、威胁或恶搞他人的言论。</li>
+    </ul>
+  </li>
+  <li>用户应尊重其他用户的合法权益，不得利用本工具进行骚扰、扰乱秩序等行为。</li>
+</ol>
+
+<h2 id="六免责声明">六、免责声明</h2>
+
+<ol>
+  <li>本工具为用户提供情绪管理和心情调节的辅助功能，但我们无法保证这些功能对每个用户的效果。</li>
+  <li>本工具不对因使用本工具而导致的任何直接或间接的损失承担责任，包括但不限于数据丢失、设备故障或无法正常运行等。</li>
+  <li>对于由于第三方应用或服务提供商造成的损失，本工具不承担责任。</li>
+</ol>
+
+<h2 id="七服务变更与终止">七、服务变更与终止</h2>
+
+<ol>
+  <li>我们有权根据实际情况随时调整、变更、暂停或终止本工具的服务。</li>
+  <li>如果您违反本协议，我们有权立即中止或终止您的使用权限，无需提前通知。</li>
+</ol>
+
+<h2 id="八知识产权">八、知识产权</h2>
+
+<ol>
+  <li>本工具及其相关服务的所有内容，包括但不限于界面、图标、软件、文字、图片、视频等，均为本工具或其授权方的知识产权，受相关法律保护。</li>
+  <li>未经授权，您不得复制、传播、修改、展示、反向工程或进行其他侵犯知识产权的行为。</li>
+</ol>
+
+<h2 id="九争议解决">九、争议解决</h2>
+
+<ol>
+  <li>本协议的签署、执行和解释均适用中华人民共和国法律。</li>
+  <li>因本协议引起的或与本协议有关的争议，双方应通过友好协商解决；协商不成的，任何一方均可向本工具所在法院提起诉讼。</li>
+</ol>
+
+<h2 id="十其他">十、其他</h2>
+
+<ol>
+  <li>本协议一旦生效，将成为用户使用本工具的正式法律依据。</li>
+  <li>本协议可能会不定期进行更新和修改，更新后的协议会通过本工具内的公告或其他方式通知用户。请定期查看相关内容。</li>
+</ol>
+
+<hr />
+
+<p>感谢您阅读并同意我们的用户协议。如有任何疑问，您可以随时联系我们。</p>
+<ul>
+  <li>Email: leonsongfeng@163.com</li>
+</ul>]]></content><author><name>Dylan</name></author><summary type="html"><![CDATA[感谢您使用 改善心情工具（以下简称“本工具”）。在您使用本工具之前，请仔细阅读以下用户协议。本协议对您使用本工具的行为具有法律约束力。 一、接受条款 通过下载、安装或使用本工具，您同意遵守以下所有条款和条件。如果您不同意本协议的任何内容，请停止使用本工具。 二、服务内容 本工具致力于帮助用户改善心情，提供一系列心理调节、情绪管理的功能。功能包括但不限于： 改善心情的小工具 自定义改善心情想法 我们将不断优化和更新本工具，功能可能随时变更。 三、用户注册与账户安全 用户在使用本工具前需要注册账户，提供真实、有效的信息。 用户应当妥善保管自己的账户信息，不得将账户信息透露给他人。 用户应对自己的账户和密码安全负责，对于任何未经授权的使用，您需立即通知我们。 四、隐私政策 我们非常重视您的隐私保护。使用本工具时，您可能需要提供一些个人信息，具体隐私政策如下： 我们不会未经您的同意向第三方泄露您的个人信息。 我们将采取合理措施保护您的信息安全。 本工具可能会收集您的情绪记录、使用习惯等数据，但这些数据仅限于改进服务，不会与其他数据合并或共享给未经授权的第三方。 五、用户义务 用户不得利用本工具从事违法、违规行为，包括但不限于： 传播恶意软件、病毒或其他有害程序。 侵犯他人合法权益，如侵犯知识产权、泄露他人隐私等。 发布不正当、侮辱、恶心、威胁或恶搞他人的言论。 用户应尊重其他用户的合法权益，不得利用本工具进行骚扰、扰乱秩序等行为。 六、免责声明 本工具为用户提供情绪管理和心情调节的辅助功能，但我们无法保证这些功能对每个用户的效果。 本工具不对因使用本工具而导致的任何直接或间接的损失承担责任，包括但不限于数据丢失、设备故障或无法正常运行等。 对于由于第三方应用或服务提供商造成的损失，本工具不承担责任。 七、服务变更与终止 我们有权根据实际情况随时调整、变更、暂停或终止本工具的服务。 如果您违反本协议，我们有权立即中止或终止您的使用权限，无需提前通知。 八、知识产权 本工具及其相关服务的所有内容，包括但不限于界面、图标、软件、文字、图片、视频等，均为本工具或其授权方的知识产权，受相关法律保护。 未经授权，您不得复制、传播、修改、展示、反向工程或进行其他侵犯知识产权的行为。 九、争议解决 本协议的签署、执行和解释均适用中华人民共和国法律。 因本协议引起的或与本协议有关的争议，双方应通过友好协商解决；协商不成的，任何一方均可向本工具所在法院提起诉讼。 十、其他 本协议一旦生效，将成为用户使用本工具的正式法律依据。 本协议可能会不定期进行更新和修改，更新后的协议会通过本工具内的公告或其他方式通知用户。请定期查看相关内容。 感谢您阅读并同意我们的用户协议。如有任何疑问，您可以随时联系我们。 Email: leonsongfeng@163.com]]></summary></entry><entry><title type="html">iOS 18 and Xcode 16 New Feature</title><link href="http://localhost:4000/2024/06/20/iOS_18_Investigation.html" rel="alternate" type="text/html" title="iOS 18 and Xcode 16 New Feature" /><published>2024-06-20T00:00:00+08:00</published><updated>2024-06-20T00:00:00+08:00</updated><id>http://localhost:4000/2024/06/20/iOS_18_Investigation</id><content type="html" xml:base="http://localhost:4000/2024/06/20/iOS_18_Investigation.html"><![CDATA[<h1 id="new-feature">New feature</h1>
 
 <h2 id="ios-18-preview"><a href="https://www.apple.com/ios/ios-18-preview/">iOS 18 Preview</a></h2>
 
